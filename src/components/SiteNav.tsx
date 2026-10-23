@@ -55,7 +55,7 @@ export function SiteNav() {
         </div>
       </div>
 
-      <a className="hire-me" href="#contacto">
+      <a className="hire-me" href={links.instagram} target="_blank" rel="noopener">
         <svg viewBox="0 0 35 35" aria-hidden="true">
           <g data-shade>
             <path d={BUBBLE} className="f" transform="translate(-3 3)" />

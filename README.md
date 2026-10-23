@@ -1,6 +1,6 @@
 # salome-portfolio
 
-Portafolio de Salome Arboleda. Un personaje line-art que sigue el cursor, charlas y hackatons, todo hecho en código con Next.js y TypeScript.
+Portafolio de Salome Arboleda. Un hero con personaje line-art que sigue el cursor y una sección de proyectos, todo hecho en código con Next.js y TypeScript.
 
 ## Correrlo
 
@@ -39,7 +39,7 @@ src/
 
 ## Cómo editar
 
-- **Textos, links, charlas y hackatons:** `src/data/content.ts`. Para agregar una fila, suma un objeto a `talks` o `hackatons` y elige una `art` de `illustrations.tsx`.
+- **Textos, links y proyectos:** `src/data/content.ts`. Para agregar un proyecto, suma un objeto a `projects` y elige una `art` de `illustrations.tsx`.
 - **Colores:** variables al inicio de `src/app/globals.css` (`--bg`, `--line`, `--fill`, `--text`, `--subtext`).
 - **Personaje:** `src/components/Avatar.tsx`. Cada capa es un `<svg>` aparte; las formas grandes (pelo, cara, torso) viven en `SvgDefs.tsx` y se reutilizan con `<use>`.
 

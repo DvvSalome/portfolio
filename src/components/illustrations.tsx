@@ -85,7 +85,7 @@ function Laptop() {
       <rect x="108" y="64" width="184" height="114" rx="9" className="s fb" />
       <rect x="122" y="78" width="156" height="86" rx="4" className="s s-thin" />
       <text x="200" y="136" textAnchor="middle" fontFamily="Bitter, Georgia, serif" fontWeight="700" fontSize="40" fill="var(--line)">
-        48h
+        {"</>"}
       </text>
       <path d="M86 188 H314 L300 204 H100Z" className="s fb" />
       <path d="M300 46 L362 22 L340 78 L324 58Z M324 58 L362 22" className="s fb" />

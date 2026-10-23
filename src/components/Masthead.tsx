@@ -1,4 +1,7 @@
+import { links, stack } from "@/data/content";
 import { Avatar } from "./Avatar";
+import { Btn } from "./Btn";
+import { InstagramIcon, LinkedInIcon } from "./icons";
 
 const SCROLL_WORD = "Desliza";
 
@@ -13,6 +16,10 @@ export function Masthead() {
 
       <div className="page-header__inr section">
         <div className="page-header__content">
+          <p className="page-header__eyebrow">
+            <span className="pulse" aria-hidden="true" />
+            Software developer · Medellín
+          </p>
           <h1 className="page-header__title t-outline">
             Hola, me
             <br />
@@ -20,9 +27,23 @@ export function Masthead() {
             <span className="dot">.</span>
           </h1>
           <p className="page-header__lede t-outline">
-            Soy <b>software developer</b> en Urpe AI Lab, desde Medellín, Colombia.
+            Construyo productos web en <b>Urpe AI Lab</b> y me meto con ciberseguridad y computación cuántica.
           </p>
-          <a className="page-header__scroll" href="#sobre-mi" aria-label="Bajar a Sobre mí">
+          <ul className="page-header__stack" aria-label="Stack principal">
+            {stack.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
+          <div className="page-header__actions">
+            <Btn href="#proyectos" label="Ver proyectos" />
+            <a className="icon-link" href={links.instagram} target="_blank" rel="noopener" aria-label="Instagram">
+              <InstagramIcon />
+            </a>
+            <a className="icon-link" href={links.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+              <LinkedInIcon />
+            </a>
+          </div>
+          <a className="page-header__scroll" href="#proyectos" aria-label="Bajar a Proyectos">
             <span className="word" aria-hidden="true">
               {[...SCROLL_WORD].map((ch, i) => (
                 <span key={i} style={{ animationDelay: `${(3.0725 + i * 0.0725).toFixed(4)}s` }}>
