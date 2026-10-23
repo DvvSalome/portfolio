@@ -1,6 +1,6 @@
 # salome-portfolio
 
-Portafolio de Salome Arboleda. Diseño oscuro (hero centrado con chip, llaves y barra de stats) con contenido de EJEMPLO, más tu personaje line-art interactivo en la sección Sobre mí.
+Portafolio de Salome Arboleda. Un personaje line-art que sigue el cursor, charlas y hackatons, todo hecho en código con Next.js y TypeScript.
 
 ## Correrlo
 
@@ -39,7 +39,7 @@ src/
 
 ## Cómo editar
 
-- **Todo el contenido (ejemplo):** `src/data/content.ts`. Estilos nuevos en `src/app/site.css`.
+- **Textos, links, charlas y hackatons:** `src/data/content.ts`. Para agregar una fila, suma un objeto a `talks` o `hackatons` y elige una `art` de `illustrations.tsx`.
 - **Colores:** variables al inicio de `src/app/globals.css` (`--bg`, `--line`, `--fill`, `--text`, `--subtext`).
 - **Personaje:** `src/components/Avatar.tsx`. Cada capa es un `<svg>` aparte; las formas grandes (pelo, cara, torso) viven en `SvgDefs.tsx` y se reutilizan con `<use>`.
 
