@@ -2,7 +2,7 @@ import { Btn } from "@/components/Btn";
 import { Masthead } from "@/components/Masthead";
 import { DotHeader, ProjectList } from "@/components/Projects";
 import { Reveal } from "@/components/Reveal";
-import { hackatons, hackatonsIntro, links, site, talks, talksIntro } from "@/data/content";
+import { hackatons, hackatonsIntro, links, projects, projectsIntro, site, talks, talksIntro } from "@/data/content";
 
 export default function Home() {
   return (
@@ -29,6 +29,9 @@ export default function Home() {
               </Reveal>
             </div>
           </div>
+
+          <DotHeader {...projectsIntro} />
+          <ProjectList projects={projects} />
 
           <DotHeader {...talksIntro} />
           <ProjectList projects={talks} />
