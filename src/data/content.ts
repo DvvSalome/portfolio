@@ -1,104 +1,68 @@
-export type ArtKey = "bitcoin" | "grover" | "trophy" | "laptop" | "beach";
-
-export type Project = {
-  id: string;
-  art: ArtKey;
-  meta: string;
-  /** Parte normal del título y parte en negrita antes del punto de color. */
-  title: { lead: string; bold: string };
-  paragraphs: string[];
-  cta: { label: string; href: string };
-};
-
+// TODO: todo el contenido es de ejemplo. Reemplázalo con tu información real.
 export const site = {
   name: "Salome Arboleda",
-  description:
-    "Software developer en Urpe AI Lab. Estudia ciberseguridad y computación cuántica, desde Medellín.",
-  year: "MMXXVI",
-  city: "Medellín",
+  handle: "salome.dev",
+  description: "Portafolio de Salome Arboleda: software developer, ciberseguridad y computación cuántica.",
+  city: "Medellín, Colombia",
+  year: new Date().getFullYear(),
 };
 
 export const links = {
   instagram: "https://www.instagram.com/dvvsalom3/",
-  linkedin: "https://www.linkedin.com/in/salome-arboleda-39b745252",
+  linkedin: "https://www.linkedin.com/",
+  github: "https://github.com/",
+  email: "mailto:hola@ejemplo.dev",
 };
 
-export const menuLinks = [
-  { href: "#inicio", label: "Inicio", hint: "Volver al principio." },
-  { href: "#sobre-mi", label: "Sobre mí", hint: "Qué hago y cómo trabajo." },
-  { href: "#charlas", label: "Charlas", hint: "Bitcoin, cuántica y Grover." },
-  { href: "#hackatons", label: "Hackatons", hint: "Tarimas, 48 horas y la costa." },
-] as const;
-
-export const talksIntro = {
-  id: "charlas",
-  title: "Charlas",
-  text: "Me gusta explicar temas difíciles sin tecnicismos de más. Estas son las dos charlas que más he disfrutado dar.",
-};
-
-export const talks: Project[] = [
-  {
-    id: "bitcoin-cuantico",
-    art: "bitcoin",
-    meta: "Unconference Colombia · 12 sep 2026",
-    title: { lead: "Bitcoin y la era ", bold: "cuántica" },
-    paragraphs: [
-      "Hablé de cómo se han cruzado Bitcoin y la computación cuántica en los últimos años, desde las primeras propuestas de protección hasta los avances más recientes.",
-      "Recorrimos BIP-360, las direcciones resistentes a computadores cuánticos y los primeros experimentos de ataques, sin alarmismo.",
-    ],
-    cta: { label: "Ver la charla", href: "https://www.instagram.com/p/DeAhS9-FcK5/" },
-  },
-  {
-    id: "grover",
-    art: "grover",
-    meta: "AI After Hours · Visible Builders, Medellín",
-    title: { lead: "Mi primer algoritmo ", bold: "cuántico" },
-    paragraphs: [
-      "Conté cómo corrí el algoritmo de Grover en un computador cuántico real de IBM, explicado desde cero.",
-      "Grover encuentra un elemento marcado amplificando su probabilidad en cada iteración. Eso es lo que muestra la barra alta del dibujo.",
-    ],
-    cta: { label: "Ver mi Instagram", href: links.instagram },
-  },
+export const nav = [
+  { href: "#proyectos", label: "Proyectos" },
+  { href: "#experiencia", label: "Experiencia" },
+  { href: "#sobre-mi", label: "Sobre mí" },
+  { href: "#contacto", label: "Contacto" },
 ];
 
-export const hackatonsIntro = {
-  id: "hackatons",
-  title: "Hackatons",
-  text: "Competir en otra ciudad, con poco sueño y mucha presión, es donde más aprendo. Estas son las que más me marcaron.",
+export const hero = {
+  badge: "Disponible para nuevos proyectos",
+  stats: [
+    { value: "+20", label: "proyectos publicados" },
+    { value: "+15", label: "charlas y hackatons" },
+    { value: "3", label: "años construyendo" },
+  ],
 };
 
-export const hackatons: Project[] = [
-  {
-    id: "techcaribe",
-    art: "trophy",
-    meta: "Techcaribe Show 2026 · Costa Caribe",
-    title: { lead: "Ganar en ", bold: "tarima" },
-    paragraphs: [
-      "Participé en una competencia en vivo con Cooweb. Trabajar con presión frente a todos fue muy loco, y dudé en subir por miedo a fallar. Terminamos ganando.",
-      "En ese mismo viaje corrí mis primeros 5K.",
-    ],
-    cta: { label: "Ver el post", href: "https://www.instagram.com/p/DcHyJ4xjJ84/" },
-  },
-  {
-    id: "build-with-ai",
-    art: "laptop",
-    meta: "Build with AI · Barranquilla",
-    title: { lead: "48 horas sin ", bold: "dormir" },
-    paragraphs: [
-      "Una competencia de 48 horas en otra ciudad, con un día entero sin dormir, conflictos en el desarrollo y muchísimo aprendizaje en equipo.",
-      "Fue mi primer viaje en avión, y hasta entré a la cabina.",
-    ],
-    cta: { label: "Ver el post", href: "https://www.instagram.com/p/DYxLV2glSrt/" },
-  },
-  {
-    id: "cartagena",
-    art: "beach",
-    meta: "Hackaton + Caribeconf · Cartagena",
-    title: { lead: "Gané y perdí al ", bold: "tiempo" },
-    paragraphs: [
-      "La hackaton más chistosa de mi vida: gané y perdí al mismo tiempo. Larga historia, pero dejó muchos aprendizajes.",
-      "Después vino la playa y el after de Caribeconf, con gente que me dio consejos que todavía uso.",
-    ],
-    cta: { label: "Ver el post", href: "https://www.instagram.com/p/DcXrb9pFYbM/" },
-  },
+export const skills = [
+  "TypeScript", "React", "Next.js", "Node.js", "Python", "PostgreSQL",
+  "Ciberseguridad", "Computación cuántica", "Qiskit", "Docker", "Git", "IA aplicada",
 ];
+
+export type Project = {
+  id: string;
+  title: string;
+  text: string;
+  tags: string[];
+  href: string;
+  accent: "pink" | "violet" | "blue" | "amber";
+};
+
+export const projects: Project[] = [
+  { id: "p1", title: "Proyecto de ejemplo uno", text: "Una app web con Next.js y una API en Node. Descripción corta de qué problema resuelve y para quién.", tags: ["Next.js", "TypeScript", "PostgreSQL"], href: "#", accent: "pink" },
+  { id: "p2", title: "Simulador cuántico", text: "Visualizador interactivo del algoritmo de Grover para explicar computación cuántica sin fórmulas.", tags: ["React", "Qiskit", "Canvas"], href: "#", accent: "violet" },
+  { id: "p3", title: "Auditor de seguridad", text: "Herramienta que revisa configuraciones comunes y reporta riesgos con recomendaciones claras.", tags: ["Node.js", "Seguridad", "CLI"], href: "#", accent: "blue" },
+  { id: "p4", title: "Asistente con IA", text: "Chat con contexto propio para un equipo, con streaming de respuestas y herramientas conectadas.", tags: ["IA", "Next.js", "Edge"], href: "#", accent: "amber" },
+];
+
+export type Job = { period: string; role: string; org: string; text: string; tags: string[] };
+
+export const experience: Job[] = [
+  { period: "2025 — Presente", role: "Software Developer", org: "Urpe AI Lab", text: "Construyo productos con IA de punta a punta: frontend, APIs y despliegue. (Texto de ejemplo.)", tags: ["TypeScript", "React", "Node.js"] },
+  { period: "2024 — 2025", role: "Frontend Developer", org: "Empresa de ejemplo", text: "Interfaces accesibles y rápidas para un producto con miles de usuarios. (Texto de ejemplo.)", tags: ["Next.js", "CSS"] },
+  { period: "2023 — 2024", role: "Hackatons y charlas", org: "Comunidad", text: "Participación y charlas sobre computación cuántica y seguridad en eventos del Caribe y Medellín. (Texto de ejemplo.)", tags: ["Charlas", "Cuántica"] },
+];
+
+export const about = {
+  title: "Hola, soy Salome.",
+  paragraphs: [
+    "Soy software developer y estudio ciberseguridad y computación cuántica. Me gusta explicar cosas difíciles de forma sencilla.",
+    "Cuando no estoy programando, estoy en una tarima, en una hackaton o buscando el próximo reto que dé un poquito de miedo. (Texto de ejemplo.)",
+  ],
+};
