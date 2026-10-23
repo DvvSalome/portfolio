@@ -1,56 +1,64 @@
-import type { Project } from "@/data/content";
-import { Btn } from "./Btn";
-import { Reveal } from "./Reveal";
+import { projects, projectsIntro, site, stats, type Project } from "@/data/content";
 import { illustrations } from "./illustrations";
 
-export function DotHeader({ id, title, text }: { id: string; title: string; text: string }) {
-  return (
-    <div className="dot-header" id={id}>
-      <Reveal className="dot-header__content">
-        <h2>
-          {title}
-          <span className="dot">.</span>
-        </h2>
-        <p>{text}</p>
-      </Reveal>
-      <div className="dots" aria-hidden="true" />
-    </div>
-  );
-}
-
-function ProjectRow({ project }: { project: Project }) {
+function ProjectCard({ project }: { project: Project }) {
   const Art = illustrations[project.art];
   return (
-    <article className="project">
-      <div className="project__header">
-        <div className="illustration">
-          <Art />
-        </div>
+    <a className={`pcard pcard--${project.accent}`} href={project.cta.href}>
+      <div className="pcard__thumb" aria-hidden="true">
+        <Art />
       </div>
-      <div className="project__details">
-        <Reveal className="flow">
-          <span className="meta">{project.meta}</span>
-          <h3>
-            {project.title.lead}
-            <b>{project.title.bold}</b>
-            <span className="dot">.</span>
-          </h3>
-          {project.paragraphs.map((p) => (
-            <p key={p}>{p}</p>
+      <div className="pcard__body">
+        <span className="pcard__year">{project.year}</span>
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <ul className="pcard__tags">
+          {project.tags.map((t) => (
+            <li key={t}>{t}</li>
           ))}
-          <Btn href={project.cta.href} label={project.cta.label} />
-        </Reveal>
+        </ul>
+        <span className="pcard__cta">
+          {project.cta.label} <span aria-hidden="true">→</span>
+        </span>
       </div>
-    </article>
+    </a>
   );
 }
 
-export function ProjectList({ projects }: { projects: Project[] }) {
+/** Todo lo que va debajo del hero, en estilo oscuro. */
+export function ProjectsSection() {
   return (
-    <div className="project-promo">
-      {projects.map((p) => (
-        <ProjectRow key={p.id} project={p} />
-      ))}
-    </div>
+    <section className="dark" id={projectsIntro.id}>
+      <div className="dark__inner">
+        <header className="dark__head">
+          <p className="dpill">
+            <span className="dpill__dot" aria-hidden="true" />
+            {projectsIntro.badge}
+          </p>
+          <h2 className="dark__title">
+            Cosas que he <span className="dchip">construido</span> con <span className="dbrace">{"{"}</span>
+            <span className="dgrad">código</span>
+            <span className="dbrace">{"}"}</span>
+          </h2>
+          <p className="dark__sub">{projectsIntro.sub}</p>
+          <ul className="dstats" aria-label="Datos rápidos">
+            {stats.map((s) => (
+              <li key={s.label}>
+                <b>{s.value}</b> {s.label}
+              </li>
+            ))}
+          </ul>
+        </header>
+
+        <div className="pgrid">
+          {projects.map((p) => (
+            <ProjectCard key={p.id} project={p} />
+          ))}
+        </div>
+      </div>
+      <footer className="dark__foot">
+        © {site.year} {site.name} · Hecho en {site.city}
+      </footer>
+    </section>
   );
 }
