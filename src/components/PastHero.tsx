@@ -2,16 +2,12 @@
 
 import { useEffect } from "react";
 
-/** Marca el body cuando la sección oscura llega arriba, para que el marco y la nav cambien de color. */
+/** Activa un velo detrás de la nav fija cuando la sección de proyectos llega arriba. */
 export function PastHero() {
   useEffect(() => {
-    const dark = document.querySelector<HTMLElement>(".dark");
-    if (!dark) return;
-    const update = () => {
-      const top = dark.getBoundingClientRect().top;
-      document.body.classList.toggle("past-hero", top <= innerHeight * 0.5);
-      document.body.classList.toggle("nav-dark", top <= 110);
-    };
+    const work = document.querySelector<HTMLElement>(".work");
+    if (!work) return;
+    const update = () => document.body.classList.toggle("nav-over", work.getBoundingClientRect().top <= 110);
     update();
     addEventListener("scroll", update, { passive: true });
     addEventListener("resize", update);

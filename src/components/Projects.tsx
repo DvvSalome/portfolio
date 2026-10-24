@@ -51,22 +51,22 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   );
 }
 
-/** Todo lo que va debajo del hero, en estilo oscuro. */
+/** Sección de proyectos debajo del hero. */
 export function ProjectsSection() {
   return (
-    <section className="dark" id={projectsIntro.id} aria-labelledby="proyectos-title" tabIndex={-1}>
-      <div className="dark__inner">
-        <header className="dark__head reveal">
+    <section className="work" id={projectsIntro.id} aria-labelledby="proyectos-title" tabIndex={-1}>
+      <div className="work__inner">
+        <header className="work__head reveal">
           <p className="dpill">
             <span className="dpill__dot" aria-hidden="true" />
             {projectsIntro.badge}
           </p>
-          <h2 className="dark__title" id="proyectos-title">
+          <h2 className="work__title" id="proyectos-title">
             Cosas que he <span className="dchip">construido</span> con <span className="dbrace">{"{"}</span>
             <span className="dgrad">código</span>
             <span className="dbrace">{"}"}</span>
           </h2>
-          <p className="dark__sub">{projectsIntro.sub}</p>
+          <p className="work__sub">{projectsIntro.sub}</p>
           <ul className="dstats" aria-label="Datos rápidos">
             {stats.map((s) => (
               <li key={s.label}>
@@ -97,7 +97,7 @@ export function ProjectsSection() {
           </div>
         </div>
       </div>
-      <footer className="dark__foot">
+      <footer className="work__foot">
         © {site.year} {site.name} · Hecho en {site.city}
       </footer>
       <RevealOnScroll />
