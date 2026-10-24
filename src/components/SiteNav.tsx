@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { links, menuLinks } from "@/data/content";
 import { InstagramIcon, LinkedInIcon } from "./icons";
@@ -30,7 +31,7 @@ export function SiteNav() {
   return (
     <header>
       <div className="mainnav">
-        <a className="logo" href="#inicio" aria-label="Volver al inicio">
+        <Link className="logo" href="/" aria-label="Volver al inicio">
           <svg viewBox="0 0 76 76" aria-hidden="true">
             <g data-shade>
               <path d={MOON} className="f" transform="translate(-5 5)" />
@@ -40,7 +41,7 @@ export function SiteNav() {
             <circle cx="36" cy="54" r="2.5" className="s s-thin" />
             <circle cx="24" cy="25" r="2" className="fl" />
           </svg>
-        </a>
+        </Link>
         <div className="menu-link">
           <button
             type="button"
@@ -55,7 +56,7 @@ export function SiteNav() {
         </div>
       </div>
 
-      <a className="hire-me" href={links.instagram} target="_blank" rel="noopener">
+      <Link className="hire-me" href="/contacto">
         <svg viewBox="0 0 35 35" aria-hidden="true">
           <g data-shade>
             <path d={BUBBLE} className="f" transform="translate(-3 3)" />
@@ -63,7 +64,7 @@ export function SiteNav() {
           <path d={BUBBLE} className="s" />
         </svg>
         Contrátame
-      </a>
+      </Link>
 
       <nav className="main-menu" id="mainMenu" aria-label="Menú principal">
         <div className="main-menu__mask" />
@@ -83,9 +84,9 @@ export function SiteNav() {
           <ul className="primary-links">
             {menuLinks.map((l) => (
               <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)}>
+                <Link href={l.href} onClick={() => setOpen(false)}>
                   {l.label}
-                </a>
+                </Link>
                 <small>{l.hint}</small>
               </li>
             ))}

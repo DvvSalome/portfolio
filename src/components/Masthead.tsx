@@ -35,7 +35,7 @@ export function Masthead() {
             ))}
           </ul>
           <div className="page-header__actions">
-            <Btn href="#proyectos" label="Ver proyectos" />
+            <Btn href="/proyectos" label="Ver proyectos" />
             <a className="icon-link" href={links.instagram} target="_blank" rel="noopener" aria-label="Instagram">
               <InstagramIcon />
             </a>
@@ -43,7 +43,7 @@ export function Masthead() {
               <LinkedInIcon />
             </a>
           </div>
-          <a className="page-header__scroll" href="#sobre-mi" aria-label="Desliza hasta sobre mí">
+          <a className="page-header__scroll" href="#explora" aria-label="Desliza hasta explora">
             <span className="word" aria-hidden="true">
               {[...SCROLL_WORD].map((ch, i) => (
                 <span key={i} style={{ animationDelay: `${(2.0725 + i * 0.0725).toFixed(4)}s` }}>

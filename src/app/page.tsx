@@ -1,8 +1,6 @@
-import { About } from "@/components/About";
+import { Explore } from "@/components/Explore";
 import { Masthead } from "@/components/Masthead";
-import { PastHero } from "@/components/PastHero";
-import { ProjectsSection } from "@/components/Projects";
-import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { PageChrome } from "@/components/PageChrome";
 import { site } from "@/data/content";
 
 export default function Home() {
@@ -16,10 +14,8 @@ export default function Home() {
           © {site.year}. Hecho en {site.city}.
         </small>
       </div>
-      <About />
-      <ProjectsSection />
-      <PastHero />
-      <RevealOnScroll />
+      <Explore />
+      <PageChrome />
     </main>
   );
 }

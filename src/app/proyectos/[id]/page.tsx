@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PageChrome } from "@/components/PageChrome";
 import { ProjectThumb } from "@/components/ProjectCard";
 import { projects, site, statusLabel } from "@/data/content";
 
@@ -24,9 +25,9 @@ export default async function CaseStudy({ params }: Props) {
   const next = projects[(i + 1) % projects.length]!;
 
   return (
-    <main className="work case" id="contenido">
+    <main className="work case subpage" id="contenido">
       <div className="work__inner case__inner">
-        <Link href="/#proyectos" className="case__back">
+        <Link href="/proyectos" className="case__back">
           <span aria-hidden="true">←</span> Todos los proyectos
         </Link>
 
@@ -100,9 +101,7 @@ export default async function CaseStudy({ params }: Props) {
           </b>
         </Link>
       </div>
-      <footer className="work__foot">
-        © {site.year} {site.name} · Hecho en {site.city}
-      </footer>
+      <PageChrome />
     </main>
   );
 }

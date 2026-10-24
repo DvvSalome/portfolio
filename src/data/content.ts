@@ -65,9 +65,11 @@ export const links = {
 };
 
 export const menuLinks = [
-  { href: "/#inicio", label: "Inicio", hint: "Volver al principio." },
-  { href: "/#sobre-mi", label: "Sobre mí", hint: "Quién soy y qué me mueve." },
-  { href: "/#proyectos", label: "Proyectos", hint: "Lo que he construido." },
+  { href: "/", label: "Inicio", hint: "Volver al principio." },
+  { href: "/sobre-mi", label: "Sobre mí", hint: "Quién soy y qué me mueve." },
+  { href: "/proyectos", label: "Proyectos", hint: "Lo que he construido." },
+  { href: "/trayectoria", label: "Trayectoria", hint: "Trabajo, charlas y logros." },
+  { href: "/contacto", label: "Contacto", hint: "Hablemos." },
 ] as const;
 
 export const projectsIntro = {
@@ -193,15 +195,56 @@ export const interests = [
   { icon: "code", title: "Desarrollo web", text: "Mi base de todos los días: TypeScript, React, Next.js y Node." },
 ] as const;
 
-export type Moment = { when: string; title: string; text: string; href?: string };
+/* ---------- Trayectoria ---------- */
+export type Talk = { date: string; event: string; title: string; text: string; href?: string };
 
-/** Momentos, del más reciente al más antiguo. */
-export const moments: Moment[] = [
-  { when: "Hoy", title: "Software developer en Urpe AI Lab", text: "Construyo productos con IA, del frontend al despliegue." },
-  { when: "Oct 2026", title: "Mi primer algoritmo cuántico", text: "Charla en AI After Hours de Visible Builders, Medellín: Grover corrido en IBM Quantum." },
-  { when: "Sep 2026", title: "Bitcoin y la era cuántica", text: "Charla en Unconference Colombia sobre BIP-360 y direcciones resistentes a computadores cuánticos.", href: "https://www.instagram.com/p/DeAhS9-FcK5/" },
-  { when: "Competencia", title: "Ganamos en tarima", text: "Competencia en vivo en Techcaribe Show con Cooweb. Dudé en subir por miedo a fallar.", href: "https://www.instagram.com/p/DcHyJ4xjJ84/" },
-  { when: "Hackaton", title: "Gané y perdí al tiempo", text: "Cartagena: la hackaton más chistosa de mi vida, y después Caribeconf.", href: "https://www.instagram.com/p/DcXrb9pFYbM/" },
-  { when: "Hackaton", title: "48 horas sin dormir", text: "Build with AI, Barranquilla: mi primer viaje en avión y un día entero programando sin parar.", href: "https://www.instagram.com/p/DYxLV2glSrt/" },
-  { when: "A los 15", title: "Mi primer trabajo", text: "Desde ahí no he parado de trabajar y aprender." },
-];
+export const career: {
+  intro: string;
+  jobs: { period: string; role: string; org: string; text: string; skills: string[] }[];
+  talks: Talk[];
+  learning: { title: string; text: string }[];
+  awards: { title: string; text: string; href?: string }[];
+} = {
+  intro: "Lo que he hecho y en lo que estoy ahora: dónde trabajo, las charlas que he dado, lo que estoy aprendiendo y lo que he logrado.",
+  jobs: [
+    {
+      period: "Hoy",
+      role: "Software Developer",
+      org: "Urpe AI Lab",
+      text: "Construyo productos con IA de punta a punta: interfaces, APIs y despliegue.",
+      skills: ["TypeScript", "React", "Next.js", "Node.js", "IA"],
+    },
+  ],
+  talks: [
+    {
+      date: "Oct 2026",
+      event: "AI After Hours · Visible Builders, Medellín",
+      title: "Mi primer algoritmo cuántico",
+      text: "Cómo corrí el algoritmo de Grover en un computador cuántico real de IBM, explicado desde cero.",
+    },
+    {
+      date: "Sep 2026",
+      event: "Unconference Colombia",
+      title: "Bitcoin y la era cuántica",
+      text: "Cómo se cruzan Bitcoin y la computación cuántica: BIP-360, direcciones resistentes y los primeros experimentos de ataques.",
+      href: "https://www.instagram.com/p/DeAhS9-FcK5/",
+    },
+  ],
+  learning: [
+    { title: "Ciberseguridad", text: "Cómo se rompen los sistemas para poder protegerlos." },
+    { title: "Computación cuántica", text: "Algoritmos cuánticos y su impacto en la criptografía." },
+  ],
+  awards: [
+    {
+      title: "Ganadora en Techcaribe Show 2026",
+      text: "Competencia en vivo con el equipo de Cooweb.",
+      href: "https://www.instagram.com/p/DcHyJ4xjJ84/",
+    },
+  ],
+};
+
+export const contact = {
+  title: "Hablemos.",
+  lede: "Si tienes un proyecto, una charla o una idea en mente, escríbeme.",
+  reasons: ["Proyectos web o con IA", "Charlas sobre cuántica o seguridad", "Colaborar en algo nuevo"],
+};

@@ -40,6 +40,7 @@ export function ProjectGrid() {
             </button>
           ))}
       </div>
+      <h2 className="vh">Lista de proyectos</h2>
       <p className="vh" aria-live="polite">
         {(featured ? 1 : 0) + list.length} proyectos
       </p>

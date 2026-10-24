@@ -2,7 +2,7 @@ import Image, { type StaticImageData } from "next/image";
 import hackaton from "@/assets/sobre-mi/hackaton-barranquilla.webp";
 import luna from "@/assets/sobre-mi/luna.webp";
 import selfie from "@/assets/sobre-mi/selfie.webp";
-import { about, interests, links, moments } from "@/data/content";
+import { about, interests, links } from "@/data/content";
 import { InstagramIcon } from "./icons";
 
 type Photo = { src: StaticImageData; alt: string; caption: string; className: string };
@@ -54,7 +54,7 @@ const icons: Record<(typeof interests)[number]["icon"], React.ReactNode> = {
 
 export function About() {
   return (
-    <section className="about" id="sobre-mi" aria-labelledby="sobre-mi-title">
+    <section className="about about--page" id="sobre-mi" aria-labelledby="sobre-mi-title">
       <div className="about__inner">
         <div className="about__grid">
           <div className="collage reveal">
@@ -72,9 +72,9 @@ export function About() {
               <span className="pulse" aria-hidden="true" />
               Sobre mí
             </p>
-            <h2 className="about__title" id="sobre-mi-title">
+            <h1 className="about__title" id="sobre-mi-title">
               {about.title}
-            </h2>
+            </h1>
             {about.paragraphs.map((p) => (
               <p key={p}>{p}</p>
             ))}
@@ -85,39 +85,19 @@ export function About() {
           </div>
         </div>
 
-        <h3 className="about__sub reveal">Lo que me mueve</h3>
+        <h2 className="about__sub reveal">Lo que me mueve</h2>
         <ul className="interests">
           {interests.map((it) => (
             <li key={it.title} className="interest reveal">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 {icons[it.icon]}
               </svg>
-              <h4>{it.title}</h4>
+              <h3>{it.title}</h3>
               <p>{it.text}</p>
             </li>
           ))}
         </ul>
 
-        <h3 className="about__sub reveal">Momentos</h3>
-        <ol className="moments">
-          {moments.map((m) => (
-            <li key={m.title} className="moment reveal">
-              <span className="moment__when">{m.when}</span>
-              <div>
-                <h4>
-                  {m.href ? (
-                    <a href={m.href} target="_blank" rel="noopener">
-                      {m.title} <span aria-hidden="true">↗</span>
-                    </a>
-                  ) : (
-                    m.title
-                  )}
-                </h4>
-                <p>{m.text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
       </div>
     </section>
   );
