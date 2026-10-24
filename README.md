@@ -50,7 +50,8 @@ axe-core: 0 violaciones. Fuentes servidas desde el propio sitio (`@fontsource`),
 
 ## Cómo editar
 
-- **Textos, links y proyectos:** `src/data/content.ts`. Cada proyecto lleva descripción, tu rol, resultado, tecnologías y links de demo/código (borra el que no tengas). Para agregar un proyecto, suma un objeto a `projects` y elige una `art` de `illustrations.tsx`.
+- **Proyectos:** `src/data/content.ts`. Cada uno tiene categoría (para los filtros), estado, `featured` (el primero sale grande), `image` opcional (captura en `/public`) y `caseStudy`, que genera su página en `/proyectos/<id>`.
+- **Textos y links:** `src/data/content.ts`. Cada proyecto lleva descripción, tu rol, resultado, tecnologías y links de demo/código (borra el que no tengas). Para agregar un proyecto, suma un objeto a `projects` y elige una `art` de `illustrations.tsx`.
 - **Colores:** variables al inicio de `src/app/globals.css` (`--bg`, `--line`, `--fill`, `--text`, `--subtext`).
 - **Personaje:** `src/components/Avatar.tsx`. Cada capa es un `<svg>` aparte; las formas grandes (pelo, cara, torso) viven en `SvgDefs.tsx` y se reutilizan con `<use>`.
 

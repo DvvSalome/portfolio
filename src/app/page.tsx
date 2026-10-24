@@ -5,7 +5,7 @@ import { site } from "@/data/content";
 
 export default function Home() {
   return (
-    <main>
+    <main id="contenido">
       <div className="pagewrap" id="inicio">
         <div className="page">
           <Masthead />

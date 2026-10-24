@@ -26,8 +26,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body>
-        <a className="skip-link" href="#proyectos">
-          Saltar a proyectos
+        <a className="skip-link" href="#contenido">
+          Saltar al contenido
         </a>
         <SvgDefs />
         <Frame />
