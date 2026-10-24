@@ -516,3 +516,36 @@ body.nav-over:not(.menu-open)::before{opacity:1}
 .sitefoot__nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--w-text);font-weight:600;text-decoration:none}
 .sitefoot__nav a:hover{color:var(--w-violet)}
 .sitefoot p{margin:0}
+
+/* ---------- buscador ⌘K ---------- */
+.cmdk{width:min(560px,calc(100vw - 32px));max-height:min(560px,80vh);margin:12vh auto auto;padding:0;border:2px solid var(--w-line);border-radius:20px;background:#fff;color:var(--w-text);box-shadow:-10px 10px 0 var(--w-pink),0 30px 80px -30px rgba(42,15,79,.45);font-family:"Inter Variable",var(--f-body);overflow:hidden}
+.cmdk[open]{animation:cmdkIn .18s ease-out}
+@keyframes cmdkIn{0%{opacity:0;transform:translateY(-8px) scale(.98)}}
+.cmdk::backdrop{background:rgba(42,15,79,.25);backdrop-filter:blur(3px)}
+.cmdk__box{display:flex;flex-direction:column;max-height:inherit}
+.cmdk__search{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--w-line)}
+.cmdk__search svg,.cmdk-btn svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--w-violet);stroke-width:2;stroke-linecap:round}
+.cmdk__search input{flex:1;min-width:0;border:0;outline:0;background:none;font:500 17px/1.4 "Inter Variable",var(--f-body);color:var(--w-text)}
+.cmdk__search input::placeholder{color:#8a7f92}
+.cmdk kbd,.cmdk-btn kbd{padding:2px 7px;border:1px solid var(--w-line);border-radius:6px;background:#fcf7fb;font:600 12px/1.4 "Inter Variable",var(--f-body);color:var(--w-sub)}
+.cmdk__list{flex:1;overflow:auto;margin:0;padding:8px;list-style:none}
+.cmdk__group{display:block;padding:12px 10px 6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--w-rose)}
+.cmdk__item{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 12px;border-radius:10px;font-weight:600;cursor:pointer}
+.cmdk__item[aria-selected="true"]{background:rgba(138,31,214,.08);color:var(--w-violet)}
+.cmdk__item span{color:var(--w-sub)}
+.cmdk__empty{padding:24px;text-align:center;color:var(--w-sub)}
+.cmdk__hint{margin:0;padding:10px 18px;border-top:1px solid var(--w-line);font-size:12px;color:var(--w-sub)}
+.cmdk-btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin:0 0 16px;padding:8px 14px;border:2px solid var(--w-line);border-radius:12px;background:#fff;color:var(--w-text);font:600 14px/1 "Inter Variable",var(--f-body);cursor:pointer;transition:border-color .15s,transform .15s}
+.cmdk-btn:hover{border-color:var(--w-violet);transform:translateY(-1px)}
+
+/* ---------- 404 ---------- */
+.lost__inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1100px;margin:0 auto;padding:150px 24px 0}
+.lost__avatar{position:relative;aspect-ratio:460/478;max-width:440px;width:100%;justify-self:center}
+.lost__avatar .avatar,.lost__avatar .avatar[class]{position:absolute;inset:0;top:0;left:0;transform:none;width:100%;height:100%;max-width:none}
+.lost__btns{justify-content:flex-start}
+@media(max-width:820px){.lost__inner{grid-template-columns:1fr;padding-top:110px;text-align:center}.lost__avatar{max-width:300px}.lost .about__eyebrow,.lost__btns{justify-content:center}}
+
+/* ---------- entrada suave al cambiar de página ---------- */
+.subpage{animation:pageIn .5s cubic-bezier(.215,.61,.355,1)}
+@keyframes pageIn{0%{opacity:0;transform:translateY(10px)}}
+@media (prefers-reduced-motion:reduce){.subpage,.cmdk[open]{animation:none}}

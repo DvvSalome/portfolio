@@ -65,3 +65,11 @@ axe-core: 0 violaciones. Fuentes servidas desde el propio sitio (`@fontsource`),
 - Clic o Enter: se baja las gafas y sonríe.
 - Si sacudes el mouse de lado a lado, se marea.
 - Con `prefers-reduced-motion` todo el movimiento se apaga.
+
+## Extras
+
+- **Buscador:** `⌘K` / `Ctrl+K` (o el botón "Buscar" del pie) para saltar a páginas, proyectos y redes.
+- **Vista previa al compartir:** imágenes Open Graph generadas en `src/app/opengraph-image.tsx` y una por proyecto.
+- **SEO:** `sitemap.xml` y `robots.txt` automáticos. Si usas dominio propio, define `NEXT_PUBLIC_SITE_URL`.
+- **404:** `src/app/not-found.tsx`, con el personaje.
+- **Analítica:** Vercel Analytics (solo se carga en Vercel; actívala en el dashboard del proyecto).

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { links, menuLinks, site } from "@/data/content";
+import { CommandButton } from "./CommandMenu";
 
 export function SiteFooter() {
   return (
@@ -14,6 +15,7 @@ export function SiteFooter() {
           GitHub
         </a>
       </nav>
+      <CommandButton />
       <p>
         © {site.year} {site.name} · Hecho en {site.city}
       </p>
