@@ -37,9 +37,20 @@ src/
     content.ts        # textos, links, charlas y hackatons
 ```
 
+## Calidad (medido con Lighthouse 12 y axe-core 4)
+
+| | Móvil | Escritorio |
+|---|---|---|
+| Rendimiento | 88–91 | 100 |
+| Accesibilidad | 100 | 100 |
+| Buenas prácticas | 100 | 100 |
+| SEO | 100 | 100 |
+
+axe-core: 0 violaciones. Fuentes servidas desde el propio sitio (`@fontsource`), sin peticiones a Google.
+
 ## Cómo editar
 
-- **Textos, links y proyectos:** `src/data/content.ts`. Para agregar un proyecto, suma un objeto a `projects` y elige una `art` de `illustrations.tsx`.
+- **Textos, links y proyectos:** `src/data/content.ts`. Cada proyecto lleva descripción, tu rol, resultado, tecnologías y links de demo/código (borra el que no tengas). Para agregar un proyecto, suma un objeto a `projects` y elige una `art` de `illustrations.tsx`.
 - **Colores:** variables al inicio de `src/app/globals.css` (`--bg`, `--line`, `--fill`, `--text`, `--subtext`).
 - **Personaje:** `src/components/Avatar.tsx`. Cada capa es un `<svg>` aparte; las formas grandes (pelo, cara, torso) viven en `SvgDefs.tsx` y se reutilizan con `<use>`.
 

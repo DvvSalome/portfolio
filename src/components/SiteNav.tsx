@@ -28,7 +28,7 @@ export function SiteNav() {
   }, []);
 
   return (
-    <>
+    <header>
       <div className="mainnav">
         <a className="logo" href="#inicio" aria-label="Volver al inicio">
           <svg viewBox="0 0 76 76" aria-hidden="true">
@@ -92,6 +92,6 @@ export function SiteNav() {
           </ul>
         </div>
       </nav>
-    </>
+    </header>
   );
 }

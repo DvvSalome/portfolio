@@ -5,17 +5,17 @@ import { site } from "@/data/content";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <div className="pagewrap" id="inicio">
-        <main className="page">
+        <div className="page">
           <Masthead />
-        </main>
-        <small className="made-in">
+        </div>
+        <small className="made-in" aria-hidden="true">
           © {site.year}. Hecho en {site.city}.
         </small>
       </div>
       <ProjectsSection />
       <PastHero />
-    </>
+    </main>
   );
 }

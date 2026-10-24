@@ -4,12 +4,17 @@ export type Project = {
   id: string;
   art: ArtKey;
   title: string;
+  /** Qué problema resuelve, en una o dos frases. */
   description: string;
+  /** Qué hiciste tú, concreto. */
+  role: string;
+  /** Resultado real (sin inventar métricas). */
+  result: string;
   tags: string[];
   year: string;
   /** Color del brillo de la tarjeta. */
-  accent: "blue" | "yellow" | "pink";
-  cta: { label: string; href: string };
+  accent: "violet" | "rose" | "pink";
+  links: { demo?: string; code?: string };
 };
 
 export const stack = ["JS/TS", "React", "Next.js", "Node"];
@@ -38,52 +43,60 @@ export const projectsIntro = {
   sub: "Proyectos que he construido de punta a punta. Cambia estos ejemplos en src/data/content.ts.",
 };
 
-/** Para agregar un proyecto: copia un objeto, cambia sus textos y elige `art`. */
+/** Para agregar un proyecto: copia un objeto, cambia sus textos y elige `art`. Si no hay demo o código, borra ese link. */
 export const projects: Project[] = [
   {
     id: "proyecto-1",
     art: "laptop",
     title: "Nombre del proyecto",
-    description: "Descripción corta de qué hace el proyecto, qué problema resuelve y para quién.",
+    description: "Qué problema resuelve el proyecto y para quién, en una o dos frases.",
+    role: "Qué hiciste tú: frontend, API, diseño, despliegue…",
+    result: "Qué cambió gracias a esto. Sin inventar números.",
     tags: ["Next.js", "TypeScript", "PostgreSQL"],
     year: "2026",
-    accent: "blue",
-    cta: { label: "Ver proyecto", href: "#" },
+    accent: "violet",
+    links: { demo: "#", code: "#" },
   },
   {
     id: "proyecto-2",
     art: "grover",
     title: "Simulador cuántico",
     description: "Ejemplo: visualizador del algoritmo de Grover para explicar computación cuántica sin fórmulas.",
+    role: "Ejemplo: diseñé la visualización y corrí el circuito en IBM Quantum.",
+    result: "Ejemplo: lo usé como apoyo en una charla.",
     tags: ["Python", "Qiskit", "React"],
     year: "2026",
-    accent: "yellow",
-    cta: { label: "Ver código", href: "#" },
+    accent: "rose",
+    links: { code: "#" },
   },
   {
     id: "proyecto-3",
     art: "trophy",
     title: "Auditor de seguridad",
-    description: "Ejemplo: herramienta que revisa configuraciones comunes y reporta riesgos con recomendaciones.",
+    description: "Ejemplo: herramienta que revisa configuraciones comunes y reporta riesgos.",
+    role: "Ejemplo: construí el CLI y las reglas de revisión.",
+    result: "Ejemplo: detecta configuraciones inseguras antes de desplegar.",
     tags: ["Node.js", "Seguridad", "CLI"],
     year: "2025",
     accent: "pink",
-    cta: { label: "Ver demo", href: "#" },
+    links: { demo: "#", code: "#" },
   },
   {
     id: "proyecto-4",
     art: "bitcoin",
     title: "Otro proyecto",
-    description: "Ejemplo: cuenta el reto más difícil del proyecto y cómo lo resolviste.",
+    description: "Ejemplo: cuenta el reto más difícil del proyecto.",
+    role: "Ejemplo: qué parte construiste tú.",
+    result: "Ejemplo: qué aprendiste o qué mejorarías.",
     tags: ["React", "Node.js"],
     year: "2025",
-    accent: "blue",
-    cta: { label: "Ver proyecto", href: "#" },
+    accent: "violet",
+    links: { demo: "#" },
   },
 ];
 
 export const stats = [
-  { value: "+20", label: "proyectos publicados" },
-  { value: "+15", label: "charlas y hackatons" },
-  { value: "3", label: "años construyendo" },
+  { value: "4", label: "proyectos destacados" },
+  { value: "JS/TS", label: "React · Next.js · Node" },
+  { value: "Medellín", label: "Colombia" },
 ];
