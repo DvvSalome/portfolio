@@ -43,7 +43,7 @@ export function Masthead() {
               <LinkedInIcon />
             </a>
           </div>
-          <a className="page-header__scroll" href="#proyectos" aria-label="Desliza hasta proyectos">
+          <a className="page-header__scroll" href="#sobre-mi" aria-label="Desliza hasta sobre mí">
             <span className="word" aria-hidden="true">
               {[...SCROLL_WORD].map((ch, i) => (
                 <span key={i} style={{ animationDelay: `${(2.0725 + i * 0.0725).toFixed(4)}s` }}>

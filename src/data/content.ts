@@ -66,6 +66,7 @@ export const links = {
 
 export const menuLinks = [
   { href: "/#inicio", label: "Inicio", hint: "Volver al principio." },
+  { href: "/#sobre-mi", label: "Sobre mí", hint: "Quién soy y qué me mueve." },
   { href: "/#proyectos", label: "Proyectos", hint: "Lo que he construido." },
 ] as const;
 
@@ -172,4 +173,35 @@ export const stats = [
   { value: String(projects.length), label: "proyectos" },
   { value: "JS/TS", label: "React · Next.js · Node" },
   { value: "Medellín", label: "Colombia" },
+];
+
+/* ---------- Sobre mí ---------- */
+export const about = {
+  title: "Curiosa desde siempre.",
+  paragraphs: [
+    "Trabajo desde los 15 años. Empecé a programar muy pequeña y nunca paré: cada vez que algo me da curiosidad, termino abriendo el computador para entender cómo funciona por dentro.",
+    "Así llegué a la ciberseguridad, a la computación cuántica y a la IA. No por moda, sino porque amo la tecnología y me encanta analizarlo todo. Hoy soy software developer en Urpe AI Lab y construyo con JS/TS, React, Next.js y Node.",
+    "Me gusta subirme a una tarima a explicar cosas difíciles de forma sencilla, competir en hackatons fuera de mi ciudad y aprender rodeada de gente que sabe más que yo.",
+  ],
+  offline: "Fuera del teclado: salir con mis amigos, ir a cine y hacer reír a la gente.",
+};
+
+export const interests = [
+  { icon: "quantum", title: "Computación cuántica", text: "Corrí mi primer algoritmo (Grover) en un computador cuántico real de IBM." },
+  { icon: "shield", title: "Ciberseguridad", text: "La estudio porque quiero entender cómo se rompen las cosas para protegerlas." },
+  { icon: "spark", title: "Inteligencia artificial", text: "Construyo productos con IA de punta a punta en Urpe AI Lab." },
+  { icon: "code", title: "Desarrollo web", text: "Mi base de todos los días: TypeScript, React, Next.js y Node." },
+] as const;
+
+export type Moment = { when: string; title: string; text: string; href?: string };
+
+/** Momentos, del más reciente al más antiguo. */
+export const moments: Moment[] = [
+  { when: "Hoy", title: "Software developer en Urpe AI Lab", text: "Construyo productos con IA, del frontend al despliegue." },
+  { when: "Oct 2026", title: "Mi primer algoritmo cuántico", text: "Charla en AI After Hours de Visible Builders, Medellín: Grover corrido en IBM Quantum." },
+  { when: "Sep 2026", title: "Bitcoin y la era cuántica", text: "Charla en Unconference Colombia sobre BIP-360 y direcciones resistentes a computadores cuánticos.", href: "https://www.instagram.com/p/DeAhS9-FcK5/" },
+  { when: "Competencia", title: "Ganamos en tarima", text: "Competencia en vivo en Techcaribe Show con Cooweb. Dudé en subir por miedo a fallar.", href: "https://www.instagram.com/p/DcHyJ4xjJ84/" },
+  { when: "Hackaton", title: "Gané y perdí al tiempo", text: "Cartagena: la hackaton más chistosa de mi vida, y después Caribeconf.", href: "https://www.instagram.com/p/DcXrb9pFYbM/" },
+  { when: "Hackaton", title: "48 horas sin dormir", text: "Build with AI, Barranquilla: mi primer viaje en avión y un día entero programando sin parar.", href: "https://www.instagram.com/p/DYxLV2glSrt/" },
+  { when: "A los 15", title: "Mi primer trabajo", text: "Desde ahí no he parado de trabajar y aprender." },
 ];

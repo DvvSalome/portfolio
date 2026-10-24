@@ -1,7 +1,6 @@
 import { links, projectsIntro, site, stats } from "@/data/content";
 import { InstagramIcon, LinkedInIcon } from "./icons";
 import { ProjectGrid } from "./ProjectGrid";
-import { RevealOnScroll } from "./RevealOnScroll";
 
 /** Sección de proyectos debajo del hero. */
 export function ProjectsSection() {
@@ -52,7 +51,6 @@ export function ProjectsSection() {
       <footer className="work__foot">
         © {site.year} {site.name} · Hecho en {site.city}
       </footer>
-      <RevealOnScroll />
     </section>
   );
 }
