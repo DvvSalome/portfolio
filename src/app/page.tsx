@@ -1,4 +1,12 @@
-import { Explore } from "@/components/Explore";
+import { ContactCTA } from "@/components/ContactCTA";
+import {
+  AboutTeaser,
+  EventsStrip,
+  FeaturedProjects,
+  IntroBlock,
+  TalksTeaser,
+  TechMarquee,
+} from "@/components/home/HomeSections";
 import { Masthead } from "@/components/Masthead";
 import { PageChrome } from "@/components/PageChrome";
 import { site } from "@/data/content";
@@ -14,7 +22,17 @@ export default function Home() {
           © {site.year}. Hecho en {site.city}.
         </small>
       </div>
-      <Explore />
+      <div className="home" id="explora">
+        <TechMarquee />
+        <IntroBlock />
+        <FeaturedProjects />
+        <AboutTeaser />
+        <TalksTeaser />
+        <EventsStrip />
+        <div className="subpage__cta">
+          <ContactCTA />
+        </div>
+      </div>
       <PageChrome />
     </main>
   );

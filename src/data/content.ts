@@ -248,3 +248,36 @@ export const contact = {
   lede: "Si tienes un proyecto, una charla o una idea en mente, escríbeme.",
   reasons: ["Proyectos web o con IA", "Charlas sobre cuántica o seguridad", "Colaborar en algo nuevo"],
 };
+
+/* ---------- Inicio ---------- */
+export const techMarquee = [
+  "TypeScript", "JavaScript", "React", "Next.js", "Node.js", "Python", "Qiskit", "IBM Quantum",
+  "Ciberseguridad", "IA", "Git", "SQL", "CSS", "Vercel",
+];
+
+/** Números reales, sin inflar. */
+export const homeStats = [
+  { value: "15", label: "años tenía cuando empecé a trabajar" },
+  { value: "2", label: "charlas sobre cuántica" },
+  { value: "3", label: "hackatons y competencias fuera de Medellín" },
+  { value: "1", label: "competencia ganada en tarima" },
+];
+
+/** Eventos y comunidades donde he estado (texto, no logos). */
+export const events = [
+  "Build with AI · Barranquilla",
+  "Techcaribe Show 2026",
+  "Unconference Colombia",
+  "AI After Hours · Visible Builders",
+  "Caribeconf · Cartagena",
+  "Urpe AI Lab",
+];
+
+/** Lo que muestra la terminal del inicio. */
+export const terminal = [
+  { cmd: "whoami", out: ["Salome Arboleda · software developer"] },
+  { cmd: "cat ubicacion.txt", out: ["Medellín, Colombia"] },
+  { cmd: "ls intereses/", out: ["ciberseguridad/  computacion-cuantica/  ia/  web/"] },
+  { cmd: "echo $TRABAJANDO_DESDE", out: ["15 años"] },
+  { cmd: "./ahora.sh", out: ["construyendo con IA en Urpe AI Lab ✦"] },
+];
