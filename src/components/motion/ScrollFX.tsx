@@ -53,10 +53,70 @@ export function ScrollFX() {
         }
         w.sec.classList.add("world--on");
         w.max = Math.max(0, w.track.scrollWidth - innerWidth + 80);
-        w.sec.style.height = `${w.max + innerHeight}px`;
+        // el scroll avanza ~1.7 veces más rápido que el desplazamiento: se recorre rápido
+        w.sec.style.height = `${w.max / 1.7 + innerHeight}px`;
       }
     };
     layoutWorlds();
+
+    // ----- túnel 3D -----
+    const tunnels = $("[data-tunnel]").map((sec) => {
+      const depth = Number(sec.dataset.tunnel) || 6000;
+      const items = [...sec.querySelectorAll<HTMLElement>("[data-z]")].map((el) => ({
+        el,
+        z: Number(el.dataset.z),
+        x: Number(el.dataset.x ?? 0),
+        y: Number(el.dataset.y ?? 0),
+        kind: el.classList.contains("tunnel__chapter") || el.dataset.end !== undefined ? "text" : el.classList.contains("tunnel__ring") ? "ring" : "obj",
+      }));
+      const count = sec.querySelector<HTMLElement>("[data-tunnel-count]");
+      const world = sec.querySelector<HTMLElement>("[data-tunnel-world]");
+      sec.classList.add("tunnel--on");
+      // 1 px de scroll ≈ 3 px de viaje: la sección no se hace eterna
+      sec.style.height = `${depth / 3 + innerHeight}px`;
+      return { sec, depth, items, count, world, mx: 0, my: 0, tx: 0, ty: 0 };
+    });
+    const tunnelPointer = (ev: PointerEvent) => {
+      for (const t of tunnels) {
+        t.tx = (ev.clientX / innerWidth - 0.5) * 2;
+        t.ty = (ev.clientY / innerHeight - 0.5) * 2;
+      }
+    };
+    addEventListener("pointermove", tunnelPointer, { passive: true });
+    const drawTunnels = () => {
+      const vh = innerHeight;
+      for (const t of tunnels) {
+        const r = t.sec.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) continue;
+        const p = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - vh)));
+        t.sec.style.setProperty("--tp", p.toFixed(4));
+        const cam = p * t.depth;
+        let current = 1;
+        for (const it of t.items) {
+          const dz = cam - it.z; // <0: todavía adelante; >0: ya pasó
+          let o = 1;
+          if (it.kind === "text") {
+            // el siguiente capítulo solo aparece cuando el actual ya se va: no se montan
+            o = dz < -1050 ? 0 : dz < -450 ? (dz + 1050) / 600 : dz < 0 ? 1 : dz < 300 ? 1 - dz / 300 : 0;
+            if (dz > -600) current = Number(it.el.dataset.chapter) || current;
+          } else {
+            o = dz < -3800 ? 0 : dz < -2000 ? (dz + 3800) / 1800 : dz < 300 ? 1 : dz < 700 ? 1 - (dz - 300) / 400 : 0;
+          }
+          if (o <= 0) {
+            if (it.el.style.visibility !== "hidden") it.el.style.visibility = "hidden";
+            continue;
+          }
+          it.el.style.visibility = "visible";
+          it.el.style.opacity = o.toFixed(3);
+          it.el.style.transform = `translate(-50%,-50%) translate3d(${it.x}vw,${it.y}vh,${dz.toFixed(1)}px)`;
+        }
+        if (t.count) t.count.textContent = String(Math.min(current, 6)).padStart(2, "0");
+        // la cámara mira un poquito hacia el mouse
+        t.mx += (t.tx - t.mx) * 0.08;
+        t.my += (t.ty - t.my) * 0.08;
+        if (t.world) t.world.style.transform = `rotateY(${(t.mx * 4).toFixed(2)}deg) rotateX(${(-t.my * 3).toFixed(2)}deg)`;
+      }
+    };
 
     // ----- marquee -----
     const mq = marquees.map((el) => ({ el, x: 0, half: el.scrollWidth / 2 }));
@@ -104,6 +164,7 @@ export function ScrollFX() {
         w.track.style.transform = `translate3d(${(-p * w.max).toFixed(1)}px,0,0)`;
         w.sec.style.setProperty("--hp", p.toFixed(4));
       }
+      drawTunnels();
     };
     const onScroll = () => {
       if (!ticking) {
@@ -123,9 +184,10 @@ export function ScrollFX() {
         m.el.style.transform = `translate3d(${m.x.toFixed(1)}px,0,0)`;
       }
       vel *= 0.94;
+      if (tunnels.length) drawTunnels();
       raf = requestAnimationFrame(loop);
     };
-    if (mq.length) raf = requestAnimationFrame(loop);
+    if (mq.length || tunnels.length) raf = requestAnimationFrame(loop);
 
     // ----- contadores -----
     const io = new IntersectionObserver(
@@ -193,6 +255,7 @@ export function ScrollFX() {
 
     const onResize = () => {
       layoutWorlds();
+      for (const t of tunnels) t.sec.style.height = `${t.depth / 3 + innerHeight}px`;
       mq.forEach((m) => (m.half = m.el.scrollWidth / 2));
       onScroll();
     };
@@ -206,6 +269,11 @@ export function ScrollFX() {
       removeEventListener("scroll", onScroll);
       removeEventListener("resize", onResize);
       removeEventListener("load", onResize);
+      removeEventListener("pointermove", tunnelPointer);
+      for (const t of tunnels) {
+        t.sec.style.height = "";
+        t.sec.classList.remove("tunnel--on");
+      }
       cancelAnimationFrame(raf);
       io.disconnect();
       offs.forEach((f) => f());

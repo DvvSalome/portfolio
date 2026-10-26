@@ -780,3 +780,36 @@ body.nav-over:not(.menu-open)::before{opacity:1}
 .fx-off .tilt,.fx-off .tilt:hover{transform:none}
 @media (prefers-reduced-motion:reduce){.world__hint i::after{animation:none}}
 .nav-over .made-in{opacity:0;transition:opacity .3s}
+
+/* ======================================================================
+   v6 · túnel 3D: la cámara viaja hacia adelante con el scroll
+   ====================================================================== */
+.tunnel{position:relative;margin-top:110px;background:radial-gradient(circle at 50% 50%,#fff 0,#fcf1f7 26%,#f3d9e8 62%,#e9c4da 100%);border-block:2px solid #e2b9d0}
+.tunnel__stage{position:relative;padding:90px 24px}
+.tunnel__world{position:relative}
+.tunnel__ring,.tunnel__dot,.tunnel__float,.tunnel__hud{display:none}
+.tunnel__chapters{display:grid;gap:56px;max-width:900px;margin:0 auto;padding:0;list-style:none;text-align:center}
+.tunnel__kicker{margin:0 0 12px;font:600 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.06em;color:var(--w-rose)}
+.tunnel__title{margin:0;font:700 clamp(30px,5.2vw,68px)/1.1 var(--f-display);letter-spacing:-.02em;color:var(--w-text);text-wrap:balance}
+.tunnel__end{display:flex;flex-direction:column;align-items:center;margin-top:56px}
+.tunnel__end .dbtn{margin-top:4px}
+
+.tunnel--on .tunnel__stage{position:sticky;top:0;height:100vh;padding:0;overflow:hidden;perspective:900px;perspective-origin:50% 50%}
+.tunnel--on .tunnel__stage::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(ellipse at center,transparent 55%,rgba(233,196,218,.85) 100%)}
+.tunnel--on .tunnel__world{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+.tunnel--on .tunnel__chapters{display:block;position:absolute;inset:0;max-width:none;margin:0;transform-style:preserve-3d}
+.tunnel--on [data-z]{position:absolute;left:50%;top:50%;visibility:hidden;will-change:transform,opacity;backface-visibility:hidden}
+.tunnel--on .tunnel__ring{display:block;width:min(92vw,1150px);aspect-ratio:1;border:2px solid rgba(138,31,214,.26);border-radius:50%;box-shadow:inset 0 0 60px rgba(192,78,160,.12)}
+.tunnel--on .tunnel__ring--dash{border:2px dashed rgba(192,78,160,.38)}
+.tunnel--on .tunnel__dot{display:block;border-radius:50%;background:rgba(138,31,214,.55);box-shadow:0 0 12px rgba(192,78,160,.6)}
+.tunnel--on .tunnel__float{--line:#8a1fd6;--fill:#f6c4dc;--bg:#fff;--muted:#b9a7c4;display:block;width:min(30vw,300px)}
+.tunnel--on .tunnel__float svg{width:100%;height:auto;overflow:visible;filter:drop-shadow(-10px 10px 0 rgba(246,196,220,.7))}
+.tunnel--on .tunnel__chapter{width:min(88vw,940px);text-align:center}
+.tunnel--on .tunnel__end{margin:0;width:min(88vw,600px)}
+.tunnel--on .tunnel__title{font-size:clamp(34px,6vw,80px)}
+.tunnel--on .tunnel__hud{position:absolute;z-index:6;top:118px;left:50%;display:flex;align-items:center;gap:14px;transform:translateX(-50%);padding:8px 14px;border:2px solid #e2b9d0;border-radius:999px;background:rgba(255,255,255,.75);backdrop-filter:blur(6px);font:600 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--w-rose);white-space:nowrap}
+.tunnel__bar{position:relative;width:120px;height:4px;border-radius:4px;background:rgba(138,31,214,.15);overflow:hidden}
+.tunnel__bar i{position:absolute;inset:0;background:linear-gradient(90deg,#8a1fd6,#c04ea0);transform:scaleX(var(--tp,0));transform-origin:left}
+.tunnel__count{color:var(--w-text)}
+.tunnel__count b{color:var(--w-violet)}
+@media(max-width:640px){.tunnel--on .tunnel__float{width:42vw}.tunnel--on .tunnel__hud{top:96px}.tunnel__bar{width:70px}}

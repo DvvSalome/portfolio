@@ -461,3 +461,13 @@ export const terminal = [
   { cmd: "echo $TRABAJANDO_DESDE", out: ["15 años"] },
   { cmd: "./ahora.sh", out: ["construyendo con IA en Urpe AI Lab ✦"] },
 ];
+
+/** Capítulos del túnel 3D del inicio (frases cortas, se leen mientras vuelas). */
+export const tunnel = [
+  { kicker: "01 · el origen", title: "Todo empezó con una pregunta:", accent: "¿cómo funciona esto por dentro?" },
+  { kicker: "02 · desde los 15", title: "Empecé a trabajar a los 15", accent: "y nunca paré de aprender." },
+  { kicker: "03 · retos", title: "Mientras más difícil,", accent: "más me engancha." },
+  { kicker: "04 · qubits", title: "Corrí un algoritmo en un", accent: "computador cuántico real." },
+  { kicker: "05 · seguridad", title: "Estudio cómo se rompen las cosas", accent: "para protegerlas." },
+  { kicker: "06 · hoy", title: "Construyo con IA", accent: "en Urpe AI Lab." },
+];
