@@ -4,7 +4,6 @@ import {
   EventsStrip,
   FeaturedProjects,
   IntroBlock,
-  TalksTeaser,
   TechMarquee,
 } from "@/components/home/HomeSections";
 import { Masthead } from "@/components/Masthead";
@@ -27,7 +26,6 @@ export default function Home() {
         <IntroBlock />
         <FeaturedProjects />
         <AboutTeaser />
-        <TalksTeaser />
         <EventsStrip />
         <div className="subpage__cta">
           <ContactCTA />

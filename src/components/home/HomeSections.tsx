@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import hackaton from "@/assets/sobre-mi/hackaton-barranquilla.webp";
-import { career, events, homeStats, projects, statusLabel, techMarquee } from "@/data/content";
+import { events, homeStats, projects, statusLabel, techMarquee } from "@/data/content";
 import { illustrations } from "../illustrations";
 import { Terminal } from "./Terminal";
 
@@ -68,11 +68,11 @@ export function IntroBlock() {
 }
 
 export function FeaturedProjects() {
-  const list = projects.slice(0, 3);
+  const list = projects.filter((p) => p.featured).slice(0, 6);
   return (
     <section className="hsec" aria-labelledby="hp-title">
       <div className="hsec__inner">
-        <Head path="~/proyectos" title={<span id="hp-title">Lo que he construido</span>} href="/proyectos" cta="Ver todos" />
+        <Head path="~/proyectos --destacados" title={<span id="hp-title">Lo que he construido</span>} href="/proyectos" cta={`Ver los ${projects.length} proyectos`} />
         <ul className="wgrid">
           {list.map((p, i) => {
             const Art = illustrations[p.art];
@@ -85,13 +85,17 @@ export function FeaturedProjects() {
                       <i />
                       <i />
                     </span>
-                    <span className="win__title">{`0${i + 1}_${p.id}.tsx`}</span>
+                    <span className="win__title">{`0${i + 1}_${p.id}`}</span>
                   </span>
                   <span className="win__art" aria-hidden="true">
                     <Art />
                   </span>
                   <span className="win__body">
-                    <span className={`status status--${p.status}`}>{statusLabel[p.status]}</span>
+                    {p.award ? (
+                      <span className="win__award">★ {p.award}</span>
+                    ) : (
+                      p.status && <span className={`status status--${p.status}`}>{statusLabel[p.status]}</span>
+                    )}
                     <span className="win__name">{p.title}</span>
                     <span className="win__text">{p.description}</span>
                     <span className="win__tags">{p.tags.join(" · ")}</span>
@@ -129,35 +133,6 @@ export function AboutTeaser() {
   );
 }
 
-export function TalksTeaser() {
-  return (
-    <section className="hsec" aria-labelledby="ht-title">
-      <div className="hsec__inner">
-        <Head path="~/charlas" title={<span id="ht-title">Me gusta explicar cosas difíciles</span>} href="/trayectoria" cta="Ver trayectoria" />
-        <div className="talks">
-          {career.talks.map((t) => (
-            <article key={t.title} className="talk reveal">
-              <div className="talk__ticket" aria-hidden="true">
-                <span>{t.date}</span>
-                <span className="talk__mic">
-                  <svg viewBox="0 0 24 24">
-                    <rect x="9" y="3" width="6" height="11" rx="3" />
-                    <path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8" />
-                  </svg>
-                </span>
-              </div>
-              <div className="talk__body">
-                <p className="talk__event">{t.event}</p>
-                <h3>{t.title}</h3>
-                <p>{t.text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export function EventsStrip() {
   return (

@@ -50,9 +50,9 @@ axe-core: 0 violaciones. Fuentes servidas desde el propio sitio (`@fontsource`),
 
 ## Cómo editar
 
-- **Proyectos:** `src/data/content.ts`. Cada uno tiene categoría (para los filtros), estado, `featured` (el primero sale grande), `image` opcional (captura en `/public`) y `caseStudy`, que genera su página en `/proyectos/<id>`.
+- **Proyectos:** `projects` en `src/data/content.ts` (proyectos reales, sacados de tus repos). Cada uno tiene `highlights` (qué hace), `tags`, `category` (filtros), `status`, `award`, `context`, `featured` (salen en el inicio) y links de código/demo. `image` opcional para poner una captura en `/public`.
 - **Páginas:** `/` (inicio + explora), `/sobre-mi`, `/proyectos`, `/proyectos/<id>`, `/trayectoria`, `/contacto`.
-- **Sobre mí:** textos en `about` e `interests` de `src/data/content.ts`; fotos en `src/assets/sobre-mi/` (se optimizan solas con `next/image`).
+- **Sobre mí:** `about`, `talks` (texto + link a tu última charla), `traits`, `interests`, `toolbox` y `funFacts` de `src/data/content.ts`; fotos en `src/assets/sobre-mi/` (se optimizan solas con `next/image`).
 - **Trayectoria:** `career` (experiencia, charlas, aprendiendo, logros). **Contacto:** `contact` y `links`.
 - **Textos y links:** `src/data/content.ts`. Cada proyecto lleva descripción, tu rol, resultado, tecnologías y links de demo/código (borra el que no tengas). Para agregar un proyecto, suma un objeto a `projects` y elige una `art` de `illustrations.tsx`.
 - **Colores:** variables al inicio de `src/app/globals.css` (`--bg`, `--line`, `--fill`, `--text`, `--subtext`).

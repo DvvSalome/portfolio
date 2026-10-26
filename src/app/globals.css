@@ -620,3 +620,44 @@ body.nav-over:not(.menu-open)::before{opacity:1}
 @media(max-width:900px){.intro,.ateaser{grid-template-columns:1fr;gap:40px}.ateaser__photo{max-width:300px}}
 @media(max-width:640px){.wgrid{grid-template-columns:1fr}.hstats{grid-template-columns:1fr}.hsec{padding-top:80px}.term__body{font-size:13px;min-height:260px}}
 @media (prefers-reduced-motion:reduce){.tmarquee__track,.term__caret{animation:none}}
+
+/* ---------- v3: proyectos reales y sobre mí ampliado ---------- */
+.status--hackaton{color:var(--w-rose)}
+.pcard__thumb .pcard__award,.win__award{position:absolute;top:12px;left:12px;z-index:1;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--w-violet);color:#fff;font:700 12px/1.2 "Inter Variable",var(--f-body);box-shadow:-4px 4px 0 var(--w-pink)}
+.win__award{position:static;box-shadow:none}
+.pcard__context{font-size:13px;color:var(--w-sub)}
+.pcard__highlights{display:grid;gap:8px;margin:4px 0 0;padding:0 0 0 20px;font-size:15px;line-height:1.6;color:#4a3a5c}
+.pcard__highlights li::marker{color:var(--w-rose)}
+.pcard__links a svg{width:16px;height:16px}
+@media(min-width:1100px){.pgrid{grid-template-columns:repeat(3,1fr)}}
+
+.about__text .talkbox{display:flex;gap:16px;margin:24px 0 0;padding:20px;border:2px solid var(--w-line);border-radius:18px;background:#fff;box-shadow:-8px 8px 0 var(--w-pink)}
+.talkbox__icon{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--w-violet)}
+.talkbox__icon svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.about__text .talkbox p{margin:0;font-size:16px;line-height:1.7;color:#4a3a5c}
+.talkbox__link{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:6px;font-weight:700;color:var(--w-violet);text-decoration:none;border-bottom:2px solid var(--w-pink)}
+.talkbox__link:hover{border-color:var(--w-violet)}
+.about__btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.about__text .about__btns .dbtn{margin-top:0}
+
+.traits{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:36px 0 0;padding:0;list-style:none}
+.trait{position:relative;padding:26px 22px 24px;border:2px solid var(--w-line);border-radius:20px;background:#fff;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+.trait:hover{transform:translate(3px,-3px);border-color:var(--w-violet);box-shadow:-8px 8px 0 rgba(138,31,214,.14)}
+.trait__num{position:absolute;top:10px;right:16px;font:700 44px/1 var(--f-display);color:rgba(246,196,220,.7)}
+.trait svg{position:relative;width:48px;height:48px;padding:10px;border-radius:12px;background:var(--w-violet);fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.trait h3{margin:16px 0 0;font:700 21px/1.3 var(--f-display);color:var(--w-text)}
+.trait p{margin:8px 0 0;font-size:15px;line-height:1.6;color:var(--w-sub)}
+
+.about__duo{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;margin-top:110px;align-items:start}
+.about__sub--left{margin:0 0 22px;text-align:left}
+.toolbox,.facts{padding:28px;border:2px solid var(--w-line);border-radius:22px;background:#fff}
+.toolbox dl{display:grid;gap:16px;margin:0}
+.toolbox dt{margin-bottom:8px;font:600 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--w-rose)}
+.toolbox dd{margin:0}
+.facts{background:repeating-linear-gradient(45deg,rgba(246,196,220,.3) 0 3px,transparent 3px 11px),#fff}
+.facts ul{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.facts li{position:relative;padding:14px 16px 14px 46px;border-radius:14px;background:#fff;border:2px solid var(--w-line);font-size:16px;line-height:1.5;color:#4a3a5c}
+.facts li::before{content:"✦";position:absolute;left:16px;top:13px;color:var(--w-violet);font-size:18px}
+
+@media(max-width:1000px){.traits{grid-template-columns:repeat(2,1fr)}.about__duo{grid-template-columns:1fr}}
+@media(max-width:560px){.traits{grid-template-columns:1fr}.about__duo{margin-top:80px}.about__text .talkbox{flex-direction:column}}

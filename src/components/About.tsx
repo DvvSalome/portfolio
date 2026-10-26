@@ -2,7 +2,8 @@ import Image, { type StaticImageData } from "next/image";
 import hackaton from "@/assets/sobre-mi/hackaton-barranquilla.webp";
 import luna from "@/assets/sobre-mi/luna.webp";
 import selfie from "@/assets/sobre-mi/selfie.webp";
-import { about, interests, links } from "@/data/content";
+import Link from "next/link";
+import { about, funFacts, interests, links, talks, toolbox, traits } from "@/data/content";
 import { InstagramIcon } from "./icons";
 
 type Photo = { src: StaticImageData; alt: string; caption: string; className: string };
@@ -28,7 +29,7 @@ const photos: Photo[] = [
   },
 ];
 
-const icons: Record<(typeof interests)[number]["icon"], React.ReactNode> = {
+const icons: Record<(typeof interests)[number]["icon"] | (typeof traits)[number]["icon"], React.ReactNode> = {
   quantum: (
     <>
       <circle cx="12" cy="12" r="2" />
@@ -48,6 +49,19 @@ const icons: Record<(typeof interests)[number]["icon"], React.ReactNode> = {
     <>
       <path d="m8 7-5 5 5 5M16 7l5 5-5 5" />
       <path d="m14 4-4 16" />
+    </>
+  ),
+  search: (
+    <>
+      <circle cx="11" cy="11" r="6.5" />
+      <path d="m20 20-4.2-4.2M8.5 9a3 3 0 0 1 3-2" />
+    </>
+  ),
+  flag: <path d="M5 21V4M5 4h11l-2 4 2 4H5" />,
+  mic: (
+    <>
+      <rect x="9" y="3" width="6" height="11" rx="3" />
+      <path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8" />
     </>
   ),
 };
@@ -78,14 +92,46 @@ export function About() {
             {about.paragraphs.map((p) => (
               <p key={p}>{p}</p>
             ))}
+            <div className="talkbox">
+              <span className="talkbox__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">{icons.mic}</svg>
+              </span>
+              <div>
+                <p>{talks.text}</p>
+                <a className="talkbox__link" href={talks.last.href} target="_blank" rel="noopener">
+                  {talks.last.label} <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
             <p className="about__offline">{about.offline}</p>
-            <a className="dbtn" href={links.instagram} target="_blank" rel="noopener">
-              <InstagramIcon /> Más fotos en Instagram
-            </a>
+            <div className="about__btns">
+              <Link className="dbtn dbtn--primary" href="/proyectos">
+                Ver mis proyectos <span aria-hidden="true">→</span>
+              </Link>
+              <a className="dbtn" href={links.instagram} target="_blank" rel="noopener">
+                <InstagramIcon /> Más fotos en Instagram
+              </a>
+            </div>
           </div>
         </div>
 
-        <h2 className="about__sub reveal">Lo que me mueve</h2>
+        <h2 className="about__sub reveal">Así soy</h2>
+        <ul className="traits">
+          {traits.map((t, i) => (
+            <li key={t.title} className="trait reveal">
+              <span className="trait__num" aria-hidden="true">
+                0{i + 1}
+              </span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                {icons[t.icon]}
+              </svg>
+              <h3>{t.title}</h3>
+              <p>{t.text}</p>
+            </li>
+          ))}
+        </ul>
+
+        <h2 className="about__sub reveal">Temas que me obsesionan</h2>
         <ul className="interests">
           {interests.map((it) => (
             <li key={it.title} className="interest reveal">
@@ -98,6 +144,38 @@ export function About() {
           ))}
         </ul>
 
+        <div className="about__duo">
+          <section className="toolbox reveal" aria-labelledby="toolbox-title">
+            <h2 className="about__sub about__sub--left" id="toolbox-title">
+              Mi caja de herramientas
+            </h2>
+            <dl>
+              {toolbox.map((g) => (
+                <div key={g.group}>
+                  <dt>{g.group}</dt>
+                  <dd>
+                    <ul className="pcard__tags">
+                      {g.items.map((it) => (
+                        <li key={it}>{it}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          <section className="facts reveal" aria-labelledby="facts-title">
+            <h2 className="about__sub about__sub--left" id="facts-title">
+              Datos curiosos
+            </h2>
+            <ul>
+              {funFacts.map((f) => (
+                <li key={f}>{f}</li>
+              ))}
+            </ul>
+          </section>
+        </div>
       </div>
     </section>
   );

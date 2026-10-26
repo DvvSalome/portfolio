@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { statusLabel, type Project } from "@/data/content";
+import { GitHubIcon } from "./icons";
 import { illustrations } from "./illustrations";
 
 export function ProjectThumb({ project, priority = false }: { project: Project; priority?: boolean }) {
@@ -12,13 +13,23 @@ export function ProjectThumb({ project, priority = false }: { project: Project; 
       ) : (
         <Art />
       )}
+      {project.award && <span className="pcard__award">★ {project.award}</span>}
+    </div>
+  );
+}
+
+export function ProjectMeta({ project }: { project: Project }) {
+  return (
+    <div className="pcard__meta">
+      {project.status && <span className={`status status--${project.status}`}>{statusLabel[project.status]}</span>}
+      <span className="pcard__year">{project.year}</span>
+      {project.context && <span className="pcard__context">· {project.context}</span>}
     </div>
   );
 }
 
 export function ProjectCard({ project, featured = false }: { project: Project; featured?: boolean }) {
   const titleId = `${project.id}-title`;
-  const href = `/proyectos/${project.id}`;
   return (
     <article
       className={`pcard pcard--${project.accent}${featured ? " pcard--featured" : ""}`}
@@ -26,28 +37,21 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
     >
       <ProjectThumb project={project} />
       <div className="pcard__body">
-        <div className="pcard__meta">
-          {featured && <span className="pcard__star">★ Destacado</span>}
-          <span className={`status status--${project.status}`}>{statusLabel[project.status]}</span>
-          <span className="pcard__year">{project.year}</span>
-        </div>
+        <ProjectMeta project={project} />
         <h3 id={titleId}>
           {/* el link del título cubre toda la tarjeta (ver .pcard__stretch en CSS) */}
-          <Link href={href} className="pcard__stretch">
+          <Link href={`/proyectos/${project.id}`} className="pcard__stretch">
             {project.title}
           </Link>
         </h3>
         <p>{project.description}</p>
-        <dl className="pcard__facts">
-          <div>
-            <dt>Mi rol</dt>
-            <dd>{project.role}</dd>
-          </div>
-          <div>
-            <dt>Resultado</dt>
-            <dd>{project.result}</dd>
-          </div>
-        </dl>
+        {featured && (
+          <ul className="pcard__highlights">
+            {project.highlights.slice(0, 3).map((h) => (
+              <li key={h}>{h}</li>
+            ))}
+          </ul>
+        )}
         <ul className="pcard__tags" aria-label="Tecnologías">
           {project.tags.map((t) => (
             <li key={t}>{t}</li>
@@ -55,16 +59,16 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
         </ul>
         <div className="pcard__links">
           <span className="pcard__case" aria-hidden="true">
-            Ver caso <span>→</span>
+            Ver proyecto <span>→</span>
           </span>
           {project.links.demo && (
-            <a href={project.links.demo} aria-label={`Ver demo de ${project.title}`}>
-              Demo <span aria-hidden="true">↗</span>
+            <a href={project.links.demo} target="_blank" rel="noopener" aria-label={`Abrir ${project.title} en vivo`}>
+              En vivo <span aria-hidden="true">↗</span>
             </a>
           )}
           {project.links.code && (
-            <a href={project.links.code} aria-label={`Ver código de ${project.title}`}>
-              Código <span aria-hidden="true">↗</span>
+            <a href={project.links.code} target="_blank" rel="noopener" aria-label={`Código de ${project.title} en GitHub`}>
+              <GitHubIcon /> Código
             </a>
           )}
         </div>

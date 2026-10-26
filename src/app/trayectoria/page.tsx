@@ -5,7 +5,7 @@ import { career, site } from "@/data/content";
 
 export const metadata: Metadata = {
   title: `Trayectoria · ${site.name}`,
-  description: "Trabajo, charlas, lo que estoy aprendiendo y logros de Salome Arboleda.",
+  description: "Trabajo, lo que estoy aprendiendo y logros de Salome Arboleda.",
 };
 
 export default function Trayectoria() {
@@ -48,36 +48,6 @@ export default function Trayectoria() {
             </ul>
           </section>
 
-          <section className="cblock reveal" aria-labelledby="talks-title">
-            <h2 className="cblock__title" id="talks-title">
-              Charlas
-            </h2>
-            <div className="talks">
-              {career.talks.map((t) => (
-                <article key={t.title} className="talk">
-                  <div className="talk__ticket" aria-hidden="true">
-                    <span>{t.date}</span>
-                    <span className="talk__mic">
-                      <svg viewBox="0 0 24 24">
-                        <rect x="9" y="3" width="6" height="11" rx="3" />
-                        <path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8" />
-                      </svg>
-                    </span>
-                  </div>
-                  <div className="talk__body">
-                    <p className="talk__event">{t.event}</p>
-                    <h3>{t.title}</h3>
-                    <p>{t.text}</p>
-                    {t.href && (
-                      <a href={t.href} target="_blank" rel="noopener">
-                        Ver la charla <span aria-hidden="true">↗</span>
-                      </a>
-                    )}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
 
           <div className="cgrid">
             <section className="cblock reveal" aria-labelledby="learn-title">

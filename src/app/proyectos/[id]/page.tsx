@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { GitHubIcon } from "@/components/icons";
 import { PageChrome } from "@/components/PageChrome";
-import { ProjectThumb } from "@/components/ProjectCard";
-import { projects, site, statusLabel } from "@/data/content";
+import { ProjectMeta, ProjectThumb } from "@/components/ProjectCard";
+import { projects, site } from "@/data/content";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return p ? { title: `${p.title} · ${site.name}`, description: p.description } : {};
 }
 
-export default async function CaseStudy({ params }: Props) {
+export default async function ProjectPage({ params }: Props) {
   const { id } = await params;
   const i = projects.findIndex((x) => x.id === id);
   const p = projects[i];
@@ -32,10 +33,7 @@ export default async function CaseStudy({ params }: Props) {
         </Link>
 
         <header className="case__head">
-          <div className="pcard__meta">
-            <span className={`status status--${p.status}`}>{statusLabel[p.status]}</span>
-            <span className="pcard__year">{p.year}</span>
-          </div>
+          <ProjectMeta project={p} />
           <h1 className="work__title case__title">{p.title}</h1>
           <p className="work__sub case__lede">{p.description}</p>
         </header>
@@ -47,13 +45,21 @@ export default async function CaseStudy({ params }: Props) {
         <div className="case__grid">
           <aside className="case__facts" aria-label="Ficha del proyecto">
             <dl>
+              {p.award && (
+                <div>
+                  <dt>Reconocimiento</dt>
+                  <dd>★ {p.award}</dd>
+                </div>
+              )}
+              {p.context && (
+                <div>
+                  <dt>Contexto</dt>
+                  <dd>{p.context}</dd>
+                </div>
+              )}
               <div>
-                <dt>Mi rol</dt>
-                <dd>{p.role}</dd>
-              </div>
-              <div>
-                <dt>Resultado</dt>
-                <dd>{p.result}</dd>
+                <dt>Año</dt>
+                <dd>{p.year}</dd>
               </div>
               <div>
                 <dt>Tecnologías</dt>
@@ -68,29 +74,25 @@ export default async function CaseStudy({ params }: Props) {
             </dl>
             <div className="case__links">
               {p.links.demo && (
-                <a className="dbtn dbtn--primary" href={p.links.demo}>
-                  Ver demo <span aria-hidden="true">↗</span>
+                <a className="dbtn dbtn--primary" href={p.links.demo} target="_blank" rel="noopener">
+                  Verlo en vivo <span aria-hidden="true">↗</span>
                 </a>
               )}
               {p.links.code && (
-                <a className="dbtn" href={p.links.code}>
-                  Ver código <span aria-hidden="true">↗</span>
+                <a className={`dbtn${p.links.demo ? "" : " dbtn--primary"}`} href={p.links.code} target="_blank" rel="noopener">
+                  <GitHubIcon /> Ver el código
                 </a>
               )}
             </div>
           </aside>
 
           <article className="case__body">
-            <h2>El problema</h2>
-            <p>{p.caseStudy.problem}</p>
-            <h2>Decisiones</h2>
+            <h2>Qué hace</h2>
             <ul>
-              {p.caseStudy.decisions.map((d) => (
-                <li key={d}>{d}</li>
+              {p.highlights.map((h) => (
+                <li key={h}>{h}</li>
               ))}
             </ul>
-            <h2>Qué aprendí</h2>
-            <p>{p.caseStudy.learned}</p>
           </article>
         </div>
 
