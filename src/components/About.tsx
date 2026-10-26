@@ -6,7 +6,7 @@ import Link from "next/link";
 import { about, funFacts, interests, links, talks, toolbox, traits } from "@/data/content";
 import { InstagramIcon } from "./icons";
 
-type Photo = { src: StaticImageData; alt: string; caption: string; className: string };
+type Photo = { src: StaticImageData; alt: string; caption: string; className: string; speed: string };
 
 const photos: Photo[] = [
   {
@@ -14,18 +14,21 @@ const photos: Photo[] = [
     alt: "Salome programando con el portátil sobre las piernas en la hackaton Build with AI de Barranquilla, con camiseta morada del evento.",
     caption: "Build with AI · Barranquilla",
     className: "polaroid--main",
+    speed: "0.06",
   },
   {
     src: luna,
     alt: "Salome sentada en un sofá blanco debajo de una lámpara grande con forma de luna.",
     caption: "Bajo mi luna",
     className: "polaroid--moon",
+    speed: "0.16",
   },
   {
     src: selfie,
     alt: "Selfie de Salome en el espejo con gorra negra y buzo blanco.",
     caption: "@dvvsalom3",
     className: "polaroid--selfie",
+    speed: "0.26",
   },
 ];
 
@@ -74,7 +77,7 @@ export function About() {
           <div className="collage reveal">
             <div className="collage__bar" aria-hidden="true" />
             {photos.map((p) => (
-              <figure key={p.caption} className={`polaroid ${p.className}`}>
+              <figure key={p.caption} className={`polaroid ${p.className}`} data-parallax={p.speed}>
                 <Image src={p.src} alt={p.alt} placeholder="blur" sizes="(max-width: 900px) 70vw, 360px" />
                 <figcaption>{p.caption}</figcaption>
               </figure>
@@ -118,7 +121,7 @@ export function About() {
         <h2 className="about__sub reveal">Así soy</h2>
         <ul className="traits">
           {traits.map((t, i) => (
-            <li key={t.title} className="trait reveal">
+            <li key={t.title} className="trait tilt reveal">
               <span className="trait__num" aria-hidden="true">
                 0{i + 1}
               </span>
@@ -134,7 +137,7 @@ export function About() {
         <h2 className="about__sub reveal">Temas que me obsesionan</h2>
         <ul className="interests">
           {interests.map((it) => (
-            <li key={it.title} className="interest reveal">
+            <li key={it.title} className="interest tilt reveal">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 {icons[it.icon]}
               </svg>

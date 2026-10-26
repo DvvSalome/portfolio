@@ -2,10 +2,10 @@ import { ContactCTA } from "@/components/ContactCTA";
 import {
   AboutTeaser,
   EventsStrip,
-  FeaturedProjects,
   IntroBlock,
   TechMarquee,
 } from "@/components/home/HomeSections";
+import { ProjectsWorld } from "@/components/home/ProjectsWorld";
 import { Masthead } from "@/components/Masthead";
 import { PageChrome } from "@/components/PageChrome";
 import { site } from "@/data/content";
@@ -24,7 +24,7 @@ export default function Home() {
       <div className="home" id="explora">
         <TechMarquee />
         <IntroBlock />
-        <FeaturedProjects />
+        <ProjectsWorld />
         <AboutTeaser />
         <EventsStrip />
         <div className="subpage__cta">

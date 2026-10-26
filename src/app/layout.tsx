@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { CommandMenu } from "@/components/CommandMenu";
+import { ScrollFX } from "@/components/motion/ScrollFX";
 import { Frame } from "@/components/Frame";
 import { ShadeMotion } from "@/components/ShadeMotion";
 import { SiteNav } from "@/components/SiteNav";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ShadeMotion />
         {children}
         <CommandMenu />
+        <ScrollFX />
         {/* solo en Vercel: en local el script no existe y daría 404 */}
         {process.env.VERCEL && <Analytics />}
       </body>

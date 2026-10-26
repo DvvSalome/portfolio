@@ -32,7 +32,7 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
   const titleId = `${project.id}-title`;
   return (
     <article
-      className={`pcard pcard--${project.accent}${featured ? " pcard--featured" : ""}`}
+      className={`pcard tilt pcard--${project.accent}${featured ? " pcard--featured" : ""}`}
       aria-labelledby={titleId}
     >
       <ProjectThumb project={project} />

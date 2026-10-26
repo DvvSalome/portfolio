@@ -10,11 +10,15 @@ export function Masthead() {
   return (
     <header className="masthead">
       <div className="avatar-bg">
-        <div className="bar" aria-hidden="true" />
-        <Avatar />
+        <div className="fx-layer" data-speed="0.12" aria-hidden="true">
+          <div className="bar" />
+        </div>
+        <div className="fx-layer fx-layer--avatar" data-speed="0.32">
+          <Avatar />
+        </div>
       </div>
 
-      <div className="page-header__inr section">
+      <div className="page-header__inr section fx-layer" data-speed="0.22" data-fade-out>
         <div className="page-header__content">
           <p className="page-header__eyebrow">
             <span className="pulse" aria-hidden="true" />
@@ -35,7 +39,9 @@ export function Masthead() {
             ))}
           </ul>
           <div className="page-header__actions">
-            <Btn href="/proyectos" label="Ver proyectos" />
+            <span data-magnetic className="magnet">
+              <Btn href="/proyectos" label="Ver proyectos" />
+            </span>
             <a className="icon-link" href={links.instagram} target="_blank" rel="noopener" aria-label="Instagram">
               <InstagramIcon />
             </a>

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import hackaton from "@/assets/sobre-mi/hackaton-barranquilla.webp";
-import { events, homeStats, projects, statusLabel, techMarquee } from "@/data/content";
-import { illustrations } from "../illustrations";
+import { events, homeStats, techMarquee } from "@/data/content";
+import { Words } from "../motion/Words";
 import { Terminal } from "./Terminal";
 
 /** Encabezado de sección del inicio, con etiqueta tipo ruta de archivo. */
@@ -26,7 +26,7 @@ export function TechMarquee() {
   const row = [...techMarquee, ...techMarquee];
   return (
     <div className="tmarquee" aria-label="Tecnologías con las que trabajo">
-      <ul className="tmarquee__track">
+      <ul className="tmarquee__track js-marquee">
         {row.map((t, i) => (
           <li key={i} aria-hidden={i >= techMarquee.length}>
             <span aria-hidden="true">✦</span> {t}
@@ -44,7 +44,7 @@ export function IntroBlock() {
         <div className="intro__text reveal">
           <p className="hhead__path">~/salome/readme.md</p>
           <h2 className="hhead__title" id="intro-title">
-            Curiosa, analítica y <span className="dgrad">enamorada</span> de la tecnología.
+            <Words parts={[{ text: "Curiosa, analítica y" }, { text: "enamorada", className: "dgrad" }, { text: "de la tecnología." }]} />
           </h2>
           <p>
             Trabajo desde los 15. Si algo me da curiosidad, abro el computador hasta entender cómo funciona por dentro. Así
@@ -53,13 +53,13 @@ export function IntroBlock() {
           <ul className="hstats">
             {homeStats.map((s) => (
               <li key={s.label}>
-                <b>{s.value}</b>
+                <b {...(/^\d+$/.test(s.value) ? { "data-count": s.value } : {})}>{s.value}</b>
                 <span>{s.label}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="reveal">
+        <div className="reveal fx-layer" data-parallax="0.08">
           <Terminal />
         </div>
       </div>
@@ -67,54 +67,12 @@ export function IntroBlock() {
   );
 }
 
-export function FeaturedProjects() {
-  const list = projects.filter((p) => p.featured).slice(0, 6);
-  return (
-    <section className="hsec" aria-labelledby="hp-title">
-      <div className="hsec__inner">
-        <Head path="~/proyectos --destacados" title={<span id="hp-title">Lo que he construido</span>} href="/proyectos" cta={`Ver los ${projects.length} proyectos`} />
-        <ul className="wgrid">
-          {list.map((p, i) => {
-            const Art = illustrations[p.art];
-            return (
-              <li key={p.id} className="reveal">
-                <Link href={`/proyectos/${p.id}`} className={`win pcard--${p.accent}`}>
-                  <span className="win__bar" aria-hidden="true">
-                    <span className="win__dots">
-                      <i />
-                      <i />
-                      <i />
-                    </span>
-                    <span className="win__title">{`0${i + 1}_${p.id}`}</span>
-                  </span>
-                  <span className={`win__art${p.image ? " win__art--img" : ""}`} aria-hidden="true">
-                    {p.image ? <Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 380px" /> : <Art />}
-                  </span>
-                  <span className="win__body">
-                    {p.award ? (
-                      <span className="win__award">★ {p.award}</span>
-                    ) : (
-                      p.status && <span className={`status status--${p.status}`}>{statusLabel[p.status]}</span>
-                    )}
-                    <span className="win__name">{p.title}</span>
-                    <span className="win__text">{p.description}</span>
-                    <span className="win__tags">{p.tags.join(" · ")}</span>
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
-  );
-}
 
 export function AboutTeaser() {
   return (
     <section className="hsec hsec--tint" aria-labelledby="ha-title">
       <div className="hsec__inner ateaser">
-        <figure className="polaroid ateaser__photo reveal">
+        <figure className="polaroid ateaser__photo reveal" data-parallax="0.12">
           <Image src={hackaton} alt="Salome programando en la hackaton Build with AI de Barranquilla." placeholder="blur" sizes="(max-width: 900px) 80vw, 380px" />
           <figcaption>Build with AI · Barranquilla</figcaption>
         </figure>
