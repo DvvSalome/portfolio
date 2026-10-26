@@ -87,8 +87,8 @@ export function FeaturedProjects() {
                     </span>
                     <span className="win__title">{`0${i + 1}_${p.id}`}</span>
                   </span>
-                  <span className="win__art" aria-hidden="true">
-                    <Art />
+                  <span className={`win__art${p.image ? " win__art--img" : ""}`} aria-hidden="true">
+                    {p.image ? <Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 380px" /> : <Art />}
                   </span>
                   <span className="win__body">
                     {p.award ? (
