@@ -344,8 +344,8 @@ export const stats = [
 export const about = {
   title: "Curiosa desde siempre.",
   paragraphs: [
-    "Programo desde muy pequeña y trabajo desde los 15. Si algo me da curiosidad, no descanso hasta ver cómo funciona por dentro.",
-    "Por eso terminé metida en ciberseguridad, computación cuántica e IA. Hoy soy developer en Urpe AI Lab.",
+    "Soy developer en Urpe AI Lab, en Medellín. Hago frontend, APIs y productos con IA.",
+    "Por fuera del trabajo estudio ciberseguridad y computación cuántica, y me meto a cuanta hackaton puedo.",
   ],
   offline: "Fuera del computador: parches con mis amigos, cine y hacer reír a la gente.",
 };
@@ -381,7 +381,7 @@ export const toolbox = [
 ];
 
 export const funFacts = [
-  "Trabajo desde los 15.",
+  "Empecé a programar haciendo animaciones en Roblox para YouTube.",
   "Mi primer vuelo fue para ir a una hackaton.",
   "En el viaje a Techcaribe corrí mis primeros 5K. No sé cómo.",
   "Gané y perdí una hackaton al mismo tiempo. Larga historia.",
@@ -435,13 +435,6 @@ export const techMarquee = [
   "OpenAI", "Gemini", "IBM Quantum", "Solidity", "Ciberseguridad", "Vercel",
 ];
 
-/** Números reales, sin inflar. */
-export const homeStats = [
-  { value: "15", label: "años tenía en mi primer trabajo" },
-  { value: String(projects.length), label: "proyectos aquí abajo" },
-  { value: "2", label: "podios en hackatons" },
-  { value: "1", label: "computador cuántico usado (prestado por IBM)" },
-];
 
 /** Hackatons y comunidades donde he estado (texto, no logos). */
 export const events = [
@@ -453,22 +446,50 @@ export const events = [
   "Urpe AI Lab",
 ];
 
-/** Lo que muestra la terminal del inicio. */
-export const terminal = [
-  { cmd: "whoami", out: ["Salome Arboleda · software developer"] },
-  { cmd: "cat ubicacion.txt", out: ["Medellín, Colombia"] },
-  { cmd: "ls intereses/", out: ["ciberseguridad/  computacion-cuantica/  ia/  web/"] },
-  { cmd: "echo $TRABAJANDO_DESDE", out: ["15 años"] },
-  { cmd: "./ahora.sh", out: ["programando con IA en Urpe AI Lab ✦"] },
-  { cmd: "echo 'escribe ayuda'", out: ["escribe ayuda 👇"] },
+
+
+/* ---------- Inicio v7 (estructura inspirada en otros portafolios) ---------- */
+export const intro = {
+  label: "en corto",
+  title: "Hago productos web y con IA.",
+  text: "Trabajo en Urpe AI Lab. Me muevo entre frontend, APIs e IA, y me meto con ciberseguridad y computación cuántica.",
+};
+
+/** Ficha tipo "perfil" (como un archivo JSON). */
+export const profileCard: [string, string][] = [
+  ["rol", "Software developer"],
+  ["empresa", "Urpe AI Lab"],
+  ["enfoque", "Web + IA"],
+  ["stack", "TypeScript · React · Next.js · Node"],
+  ["estudiando", "Ciberseguridad · Cuántica"],
+  ["base", "Medellín, Colombia"],
 ];
 
-/** Capítulos del túnel 3D del inicio (frases cortas, se leen mientras vuelas). */
-export const tunnel = [
-  { kicker: "01 · el origen", title: "Todo empezó con una pregunta:", accent: "¿y esto cómo funciona?" },
-  { kicker: "02 · a los 15", title: "Primer trabajo a los 15.", accent: "No he parado desde ahí." },
-  { kicker: "03 · retos", title: "Si me dicen que está difícil,", accent: "ya me convencieron." },
-  { kicker: "04 · qubits", title: "Corrí un algoritmo en un", accent: "computador cuántico de verdad." },
-  { kicker: "05 · seguridad", title: "Aprendo a romper cosas", accent: "para que nadie más las rompa." },
-  { kicker: "06 · hoy", title: "Hoy hago IA en Urpe AI Lab.", accent: "Y esto apenas empieza." },
+export const services = [
+  {
+    icon: "code",
+    title: "Desarrollo web",
+    text: "Sitios y apps rápidas, accesibles y bonitas. Del diseño al despliegue.",
+    tools: ["Next.js", "React", "TypeScript", "Supabase"],
+  },
+  {
+    icon: "spark",
+    title: "Productos con IA",
+    text: "Asistentes, flujos con LLMs y visión por computador que resuelven algo concreto.",
+    tools: ["OpenAI", "Gemini", "LangChain", "MediaPipe"],
+  },
+  {
+    icon: "quantum",
+    title: "Cuántica y seguridad",
+    text: "Experimentos, demos y charlas para explicar temas difíciles sin enredar a nadie.",
+    tools: ["IBM Quantum", "Qiskit", "Python"],
+  },
+] as const;
+
+/** Repos que muestro como "hecho en público". */
+export const openSource = ["laboratorio-grover", "argos", "alyra"];
+
+export const awards = [
+  { place: "1.º", title: "Techcaribe Show 2026", text: "Vitalis · con Cooweb", href: "https://www.instagram.com/p/DcHyJ4xjJ84/" },
+  { place: "2.º", title: "Monad Blitz", text: "PokeMonad", href: "https://github.com/DvvSalome/pokemonad" },
 ];

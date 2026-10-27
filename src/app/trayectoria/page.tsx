@@ -19,7 +19,7 @@ export default function Trayectoria() {
               Trayectoria
             </p>
             <h1 className="about__title" id="trayectoria-title">
-              Trabajando desde los <span className="dchip">15</span>.
+              Trayectoria<span className="dot">.</span>
             </h1>
             <p className="subhead__lede">{career.intro}</p>
           </header>

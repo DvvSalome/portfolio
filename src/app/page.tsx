@@ -1,11 +1,7 @@
 import { ContactCTA } from "@/components/ContactCTA";
-import {
-  EventsStrip,
-  IntroBlock,
-  TechMarquee,
-} from "@/components/home/HomeSections";
-import { ProjectsWorld } from "@/components/home/ProjectsWorld";
-import { Tunnel } from "@/components/home/Tunnel";
+import { OpenSource, ProfileBlock, Recognition, Services } from "@/components/home/HomeBlocks";
+import { TechMarquee } from "@/components/home/HomeSections";
+import { SelectedWork } from "@/components/home/SelectedWork";
 import { Masthead } from "@/components/Masthead";
 import { PageChrome } from "@/components/PageChrome";
 import { site } from "@/data/content";
@@ -23,10 +19,11 @@ export default function Home() {
       </div>
       <div className="home" id="explora">
         <TechMarquee />
-        <IntroBlock />
-        <Tunnel />
-        <ProjectsWorld />
-        <EventsStrip />
+        <ProfileBlock />
+        <SelectedWork />
+        <Services />
+        <OpenSource />
+        <Recognition />
         <div className="subpage__cta">
           <ContactCTA />
         </div>
