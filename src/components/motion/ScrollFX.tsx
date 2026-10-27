@@ -177,6 +177,8 @@ export function ScrollFX() {
     let raf = 0;
     const loop = () => {
       for (const m of mq) {
+        const mr = m.el.getBoundingClientRect();
+        if (mr.bottom < 0 || mr.top > innerHeight) continue;
         if (!m.half) m.half = m.el.scrollWidth / 2;
         m.x -= (0.6 + Math.min(14, Math.abs(vel) * 0.6)) * dir;
         if (m.x <= -m.half) m.x += m.half;
@@ -187,7 +189,10 @@ export function ScrollFX() {
       if (tunnels.length) drawTunnels();
       raf = requestAnimationFrame(loop);
     };
-    if (mq.length || tunnels.length) raf = requestAnimationFrame(loop);
+    // arranca después de la carga para no competir con el primer render
+    const startLoop = window.setTimeout(() => {
+      if (mq.length || tunnels.length) raf = requestAnimationFrame(loop);
+    }, 1200);
 
     // ----- contadores -----
     const io = new IntersectionObserver(
@@ -275,6 +280,7 @@ export function ScrollFX() {
         t.sec.classList.remove("tunnel--on");
       }
       cancelAnimationFrame(raf);
+      clearTimeout(startLoop);
       io.disconnect();
       offs.forEach((f) => f());
       for (const w of worldState) {

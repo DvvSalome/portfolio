@@ -6,7 +6,7 @@ import { site } from "@/data/content";
 
 export const metadata: Metadata = {
   title: `Sobre mí · ${site.name}`,
-  description: "Quién es Salome: developer desde los 15, curiosa, apasionada por la cuántica, la ciberseguridad y la IA.",
+  description: "Quién es Salome: developer desde los 15, curiosa, metida en cuántica, ciberseguridad e IA.",
 };
 
 export default function SobreMi() {

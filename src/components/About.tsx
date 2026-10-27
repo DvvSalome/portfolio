@@ -134,7 +134,7 @@ export function About() {
           ))}
         </ul>
 
-        <h2 className="about__sub reveal">Temas que me obsesionan</h2>
+        <h2 className="about__sub reveal">En qué ando metida</h2>
         <ul className="interests">
           {interests.map((it) => (
             <li key={it.title} className="interest tilt reveal">

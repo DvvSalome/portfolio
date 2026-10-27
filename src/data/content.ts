@@ -11,7 +11,7 @@ export const stack = ["JS/TS", "React", "Next.js", "Node"];
 export const site = {
   name: "Salome Arboleda",
   description:
-    "Software developer en Urpe AI Lab. Apasionada por la tecnología: web, IA, ciberseguridad y computación cuántica, desde Medellín.",
+    "Software developer en Urpe AI Lab, en Medellín. Web, IA, ciberseguridad y computación cuántica.",
   year: "MMXXVI",
   city: "Medellín",
 };
@@ -330,8 +330,8 @@ export const projects: Project[] = [
 
 export const projectsIntro = {
   id: "proyectos",
-  badge: "Proyectos reales · código en GitHub",
-  sub: "Hackatons, proyectos para clientes y experimentos. Todo lo construí yo o con mi equipo, y el código está en GitHub.",
+  badge: "El código está en GitHub",
+  sub: "Hackatons, trabajos para clientes y experimentos que se me salieron de las manos.",
 };
 
 export const stats = [
@@ -344,31 +344,31 @@ export const stats = [
 export const about = {
   title: "Curiosa desde siempre.",
   paragraphs: [
-    "Empecé a programar desde muy pequeña y trabajo desde los 15 años. Desde entonces no he parado: cada vez que algo me da curiosidad, abro el computador hasta entender cómo funciona por dentro.",
-    "Soy una apasionada por todo el mundo de la tecnología. Me gustan los retos y aprender cosas difíciles; así llegué a la ciberseguridad, a la computación cuántica y a la inteligencia artificial. Hoy soy software developer en Urpe AI Lab.",
+    "Programo desde muy pequeña y trabajo desde los 15. Si algo me da curiosidad, no descanso hasta ver cómo funciona por dentro.",
+    "Por eso terminé metida en ciberseguridad, computación cuántica e IA. Hoy soy developer en Urpe AI Lab.",
   ],
-  offline: "Fuera del teclado: salir con mis amigos, ir a cine y hacer reír a la gente.",
+  offline: "Fuera del computador: parches con mis amigos, cine y hacer reír a la gente.",
 };
 
 /** Charlas: solo el texto y el link a la última. */
 export const talks = {
-  text: "Me encanta dar charlas. He hablado sobre computación cuántica: cómo corrí el algoritmo de Grover en un computador cuántico real de IBM y cómo se cruzan Bitcoin y la era cuántica. Explicar algo difícil de forma sencilla es mi manera favorita de aprenderlo.",
+  text: "También doy charlas. He hablado de computación cuántica: cómo corrí Grover en un computador de IBM y qué tiene que ver Bitcoin con todo eso.",
   // Cambia este link cuando tengas el video o el post de tu charla más reciente.
-  last: { label: "Ver mi última charla", href: "https://www.instagram.com/p/DeAhS9-FcK5/" },
+  last: { label: "Ver la última", href: "https://www.instagram.com/p/DeAhS9-FcK5/" },
 };
 
 export const traits = [
-  { icon: "search", title: "Curiosa", text: "No me basta con que algo funcione: quiero saber cómo funciona por dentro." },
-  { icon: "flag", title: "Amo los retos", text: "Mientras más difícil, mejor. Las hackatons fuera de mi ciudad son mi lugar feliz." },
-  { icon: "spark", title: "Apasionada", text: "Me emociona todo el mundo de la tecnología, de la web a los qubits." },
-  { icon: "mic", title: "Me gusta enseñar", text: "Subirme a una tarima a explicar algo complejo de forma sencilla." },
+  { icon: "search", title: "Curiosa", text: "Si funciona, quiero saber por qué. Si no funciona, también." },
+  { icon: "flag", title: "Terca con los retos", text: "Si me dicen que está difícil, ya me convencieron." },
+  { icon: "spark", title: "Todo terreno", text: "Web, IA, seguridad, qubits. Me meto en todo." },
+  { icon: "mic", title: "Explico fácil", text: "Si no lo puedo explicar sencillo, es que todavía no lo entendí." },
 ] as const;
 
 export const interests = [
-  { icon: "quantum", title: "Computación cuántica", text: "Corrí mi primer algoritmo (Grover) en un computador cuántico real de IBM." },
-  { icon: "shield", title: "Ciberseguridad", text: "La estudio porque quiero entender cómo se rompen las cosas para protegerlas." },
-  { icon: "spark", title: "Inteligencia artificial", text: "Construyo productos con IA de punta a punta en Urpe AI Lab." },
-  { icon: "code", title: "Desarrollo web", text: "Mi base de todos los días: TypeScript, React, Next.js y Node." },
+  { icon: "quantum", title: "Computación cuántica", text: "Corrí Grover en un computador cuántico de IBM. Todavía no lo supero." },
+  { icon: "shield", title: "Ciberseguridad", text: "Aprendo cómo se rompen las cosas para que no se rompan." },
+  { icon: "spark", title: "IA", text: "Mi día a día en Urpe AI Lab." },
+  { icon: "code", title: "Web", text: "Lo de siempre: TypeScript, React, Next.js y Node." },
 ] as const;
 
 /** Herramientas que uso, sacadas de mis proyectos. */
@@ -381,10 +381,10 @@ export const toolbox = [
 ];
 
 export const funFacts = [
-  "Trabajo desde los 15 años.",
-  "Mi primer viaje en avión fue para ir a una hackaton.",
-  "En el viaje a Techcaribe corrí mis primeros 5K.",
-  "Gané y perdí una hackaton al mismo tiempo (larga historia).",
+  "Trabajo desde los 15.",
+  "Mi primer vuelo fue para ir a una hackaton.",
+  "En el viaje a Techcaribe corrí mis primeros 5K. No sé cómo.",
+  "Gané y perdí una hackaton al mismo tiempo. Larga historia.",
 ];
 
 /* ---------- Trayectoria ---------- */
@@ -394,7 +394,7 @@ export const career: {
   learning: { title: string; text: string }[];
   awards: { title: string; text: string; href?: string }[];
 } = {
-  intro: "Dónde trabajo, lo que estoy aprendiendo y lo que he logrado.",
+  intro: "Dónde trabajo, qué estoy aprendiendo y un par de premios.",
   jobs: [
     {
       period: "Hoy",
@@ -425,8 +425,8 @@ export const career: {
 /* ---------- Contacto ---------- */
 export const contact = {
   title: "Hablemos.",
-  lede: "Si tienes un proyecto, una charla o una idea en mente, escríbeme.",
-  reasons: ["Proyectos web o con IA", "Charlas sobre computación cuántica", "Hackatons y retos nuevos"],
+  lede: "¿Un proyecto, una charla o una idea rara? Escríbeme, que no muerdo.",
+  reasons: ["Un proyecto", "Una charla", "Un reto"],
 };
 
 /* ---------- Inicio ---------- */
@@ -437,10 +437,10 @@ export const techMarquee = [
 
 /** Números reales, sin inflar. */
 export const homeStats = [
-  { value: "15", label: "años tenía cuando empecé a trabajar" },
-  { value: String(projects.length), label: "proyectos reales en este portafolio" },
-  { value: "2", label: "podios en hackatons (1.º y 2.º)" },
-  { value: "∞", label: "ganas de entender cosas difíciles" },
+  { value: "15", label: "años tenía en mi primer trabajo" },
+  { value: String(projects.length), label: "proyectos aquí abajo" },
+  { value: "2", label: "podios en hackatons" },
+  { value: "1", label: "computador cuántico usado (prestado por IBM)" },
 ];
 
 /** Hackatons y comunidades donde he estado (texto, no logos). */
@@ -459,15 +459,16 @@ export const terminal = [
   { cmd: "cat ubicacion.txt", out: ["Medellín, Colombia"] },
   { cmd: "ls intereses/", out: ["ciberseguridad/  computacion-cuantica/  ia/  web/"] },
   { cmd: "echo $TRABAJANDO_DESDE", out: ["15 años"] },
-  { cmd: "./ahora.sh", out: ["construyendo con IA en Urpe AI Lab ✦"] },
+  { cmd: "./ahora.sh", out: ["programando con IA en Urpe AI Lab ✦"] },
+  { cmd: "echo 'escribe ayuda'", out: ["escribe ayuda 👇"] },
 ];
 
 /** Capítulos del túnel 3D del inicio (frases cortas, se leen mientras vuelas). */
 export const tunnel = [
-  { kicker: "01 · el origen", title: "Todo empezó con una pregunta:", accent: "¿cómo funciona esto por dentro?" },
-  { kicker: "02 · desde los 15", title: "Empecé a trabajar a los 15", accent: "y nunca paré de aprender." },
-  { kicker: "03 · retos", title: "Mientras más difícil,", accent: "más me engancha." },
-  { kicker: "04 · qubits", title: "Corrí un algoritmo en un", accent: "computador cuántico real." },
-  { kicker: "05 · seguridad", title: "Estudio cómo se rompen las cosas", accent: "para protegerlas." },
-  { kicker: "06 · hoy", title: "Construyo con IA", accent: "en Urpe AI Lab." },
+  { kicker: "01 · el origen", title: "Todo empezó con una pregunta:", accent: "¿y esto cómo funciona?" },
+  { kicker: "02 · a los 15", title: "Primer trabajo a los 15.", accent: "No he parado desde ahí." },
+  { kicker: "03 · retos", title: "Si me dicen que está difícil,", accent: "ya me convencieron." },
+  { kicker: "04 · qubits", title: "Corrí un algoritmo en un", accent: "computador cuántico de verdad." },
+  { kicker: "05 · seguridad", title: "Aprendo a romper cosas", accent: "para que nadie más las rompa." },
+  { kicker: "06 · hoy", title: "Hoy hago IA en Urpe AI Lab.", accent: "Y esto apenas empieza." },
 ];

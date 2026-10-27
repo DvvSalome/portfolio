@@ -44,11 +44,11 @@ export function IntroBlock() {
         <div className="intro__text reveal">
           <p className="hhead__path">~/salome/readme.md</p>
           <h2 className="hhead__title" id="intro-title">
-            <Words parts={[{ text: "Curiosa, analítica y" }, { text: "enamorada", className: "dgrad" }, { text: "de la tecnología." }]} />
+            <Words parts={[{ text: "Curiosa, analítica y" }, { text: "espontánea.", className: "dgrad" }]} />
           </h2>
           <p>
-            Trabajo desde los 15. Si algo me da curiosidad, abro el computador hasta entender cómo funciona por dentro. Así
-            llegué a la ciberseguridad, a la computación cuántica y a la IA.
+            Trabajo desde los 15. Si algo me da curiosidad, lo abro hasta entender cómo funciona. Así llegué a la
+            ciberseguridad, la computación cuántica y la IA.
           </p>
           <ul className="hstats">
             {homeStats.map((s) => (
